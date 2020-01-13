@@ -1,0 +1,7 @@
+[submodule "themes/elephants"]
+	path = themes/elephants
+	url = https://github.com/suam-team/elephants.git
+[submodule "public"]
+	path = public
+	url = git@github.com:suam-team/blog.git
+	branch = master

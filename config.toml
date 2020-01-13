@@ -1,0 +1,7 @@
+baseURL = "https://suam-team.github.io/blog/"
+languageCode = "en-us"
+title = "SUAM"
+theme = "elephants"
+
+[params]
+    sitename = "SUAM"
