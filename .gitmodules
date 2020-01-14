@@ -2,3 +2,6 @@
 	path = public
 	url = git@github.com:suam-team/blog.git
 	branch = master
+[submodule "themes/hello-friend"]
+	path = themes/hello-friend
+	url = https://github.com/panr/hugo-theme-hello-friend.git
