@@ -32,7 +32,6 @@ paginate = 5
 
     [languages.en.params.logo]
       logoText = "SUAM"
-      logoHomeLink = "/"
     # or
     #
     # path = "/img/your-example-logo.svg"
