@@ -1,44 +1,74 @@
-baseurl = "https://suam-team.github.io/blog/"
-languageCode = "en-us"
-theme = "hello-friend"
+baseURL = "https://suam.wtf/"
 title = "SUAM"
-paginate = 5
+copyright = ""
+paginate = 2
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+theme = "hugo-theme-chunky-poster"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "https://www.facebook.com/photo.php?fbid=3303186886378184&set=a.540950052601895&type=3"
+    weight = 0
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+author = "authors"
 
 [params]
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
-  # "light" or "dark"
-  defaultTheme = "dark"
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
-  # Show reading time in minutes for posts
-  showReadingTime = false
+  author = "SUAM Team"
+  description = "มีสาระบ้างเดี๋ยวเขาหาว่าเอาแต่เมา"
+  homepageImage = "/images/logo2.jpg"
+  share = false
+  showLanguageSwitcher = false
 
-[languages]
-  [languages.en]
-    title = "SUAM"
-    subtitle = "Secret Unorthodox Alien's Memo"
-    keywords = ""
-    copyright = ""
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
+  # Custom CSS and JS. Relative to /static/css and /static/js respectively.
+  customCSS = []
+  customJS = []
 
-    [languages.en.params.logo]
-      logoText = "SUAM"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+  [params.social]
+    rss = false
+    email = ""
+    facebook = ""
+    twitter = ""
+    linkedin = ""
+    stack-overflow = ""
+    instagram = ""
+    github = ""
+    weibo = ""
+    medium = ""
+    pinterest = ""
+    reddit = ""
+    gitlab = ""
+    mastodon = ""
+    keybase = ""
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
+  [params.prismJS]
+    enable = true
+    theme = ""
+
+  [params.commento]
+    enable = false
+    url = "https://commento.io"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
