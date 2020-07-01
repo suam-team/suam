@@ -29,7 +29,7 @@ author = "authors"
 [params]
   author = "SUAM Team"
   description = "มีสาระบ้างเดี๋ยวเขาหาว่าเอาแต่เมา"
-  homepageImage = "/images/logo2.jpg"
+  homepageImage = "/images/landing.png"
   share = false
   showLanguageSwitcher = false
 
