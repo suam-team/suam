@@ -1,7 +1,7 @@
 ---
 name: Ruthlezs
 images: ["Ruthlezs.png"]
-twitter: 'ruthlezs'
+twitter: 'absgolfz'
 ---
 
 OSCP, PCIP, CEH, Project+
