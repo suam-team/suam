@@ -39,9 +39,7 @@ Plaintext = Keystream ^ Ciphertext
 
 ลองดูรูปด้านล่างเผื่อจะเข้าใจมากขึ้น
 
-<p align="center">
-  <img src="https://ggez.cc/img/stream_cipher.png">
-</p>
+![Symmetric Key Cipher](https://ggez.cc/img/stream_cipher.png)
 
 ตัวอย่างยอดฮิตในอดีตก็จะเป็น [RC4](https://en.wikipedia.org/wiki/RC4) ที่แตกพ่ายไปแล้ว และก็จะเป็น Stream cipher ที่เอา Block cipher มาสร้าง Keystream เช่น AES-CTR หรือ [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) (บางคนจะมองเป็น Block cipher แต่ผมมองเป็น Stream cipher) และยอดฮิตล่าสุดก็จะเป็น ChaCha20 หรือ [Salsa20](https://en.wikipedia.org/wiki/Salsa20)
 
@@ -118,9 +116,7 @@ Plaintext = Keystream ^ Ciphertext = "I Hate you"
 
 โดยการเข้ารหัสแบบ AES-CTR จะเป็นการนำ AES ที่เป็น Block cipher มาใช้สร้าง `Keystream` แทนที่จะใช้ `PRNG` ครับ การทำงานแบบง่าย ๆ คือ มันจะใช้ AES มาทำการเข้ารหัส Nonce รวมกับ Counter โดย Counter จะเป็นเลขเรียงกันที่เพิ่มขึ้นเรื่อย ๆ เราก็จะได้ `Keystream` มา จากนั้นก็เหมือนกับ Stream cipher อื่น ๆ แล้ว
 
-<p align="center">
-  <img src="https://ggez.cc/img/aes_ctr.png">
-</p>
+![](https://i.imgur.com/8wxNpNg.png)
 
 ## ทดลองแฮกกันเลย
 
@@ -132,9 +128,7 @@ Plaintext = Keystream ^ Ciphertext = "I Hate you"
 
 ขอใบ้ด้วยรูป เดียวจะไม่มีคนทำ ลองหาวิธีดูครับ
 
-<p align="center">
-  <img src="https://ggez.cc/img/broken_counter.png">
-</p>
+![](https://ggez.cc/img/broken_counter.png)
 
 ## การบ้านก่อนจะไป Part 2
 
