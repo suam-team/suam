@@ -136,8 +136,8 @@ export default {
             
             // If image is portrait
             else if (aspectRatio < 1) {
-                image.style.width = 'auto';
-                image.style.maxHeight = '50%';
+                image.style.width = '50%';
+                image.style.height = 'auto';
             }
             
             // Otherwise, image is square
