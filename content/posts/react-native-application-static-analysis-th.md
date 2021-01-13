@@ -7,15 +7,15 @@ description = "วิธีการแกะการทำงานของ A
 
 ![banner](https://i.imgur.com/cCqu6la.png)
 
-ในปี 2020 ที่ผ่านมา ผมทำงาน pentest เจอแอปที่ถูกพัฒนาด้วย Cross-platform Framework ต่าง ๆ เยอะขึ้นมาก เช่น [Xamarin](https://dotnet.microsoft.com/apps/xamarin), [React Native](https://reactnative.dev/), หรือ [Flutter](https://flutter.dev/) และผมคิดว่าในปีหลัง ๆ ก็น่าจะเจอบ่อยขึ้นไปอีก อีกทั้งในการทำ Reverse Engineering หรือการทำ Static Analysis ของแอปใน Framework ต่าง ๆ ก็จะมีวิธีการที่ไม่เหมือนกันเลย ยิ่งเป็น Framework ที่ถูกสร้างขึ้นใหม่จะไม่มี Material หรือ Tool ที่ช่วยในการทำ Analysis อยู่เลย ทำให้การทำ Static Analysis ทำได้ยากมาก รวมไปถึงการ Bypass Logic หรือ Protection ต่าง ๆ ที่ต้องทำการ Patch แอป ก็จะแทบเป็นไปไม่ได้เลยถ้าไม่เข้าใจ Internal ของ Framework นั้น ๆ
+ในปี 2020 ที่ผ่านมา ผมทำงาน pentest เจอแอปที่ถูกพัฒนาด้วย cross-platform framework ต่าง ๆ เยอะขึ้นมาก เช่น [Xamarin](https://dotnet.microsoft.com/apps/xamarin), [React Native](https://reactnative.dev/), หรือ [Flutter](https://flutter.dev/) และผมคิดว่าในปีหลัง ๆ ก็น่าจะเจอบ่อยขึ้นไปอีก อีกทั้งในการทำ reverse engineering หรือการทำ static analysis ของแอปใน framework ต่าง ๆ ก็จะมีวิธีการที่ไม่เหมือนกันเลย ยิ่งเป็น framework ที่ถูกสร้างขึ้นใหม่จะไม่มี material หรือ tool ที่ช่วยในการทำ analysis อยู่เลย ทำให้การทำ static analysis ทำได้ยากมาก รวมไปถึงการ bypass logic หรือ protection ต่าง ๆ ที่ต้องทำการ patch แอป ก็จะแทบเป็นไปไม่ได้เลยถ้าไม่เข้าใจ Internal ของ framework นั้น ๆ
 
-เมื่อก่อน React Native เป็น Framework ที่เจอบ่อยมาก และทำ Reverse Engineering ง่ายกว่าเพื่อน แต่ว่าทาง Facebook ได้เริ่มสร้าง JavaScript Engine ของตัวเองชื่อ [Hermes](https://hermesengine.dev/) ขึ้นมา และเริ่มที่จะนำมาใช้กับ React Native แล้ว ตอนนี้ถูก bundle มาพร้อมใน Starter Kit ต่าง ๆ แล้ว (แต่ยังไม่ได้ Enable เป็น Default) ทำให้ Developer ที่ต้องการความเร็ว App เริ่มหันมา Enable กันละ โดย React Native แบบเดิมจะทำการฝัง JavaScript source code ที่ถูก minify แล้วมา ทำให้สามารถ Beautify และก็อ่านได้เลย ez แต่แบบใหม่ที่ใช้ Hermes ตอน build JavaScript source code จะถูก compile เป็น Hermes Bytecode ก่อนและนำมายัดลง Application
+เมื่อก่อน React Native เป็น framework ที่เจอบ่อยมาก และทำ reverse engineering ง่ายกว่าเพื่อน แต่ว่าทาง Facebook ได้เริ่มสร้าง JavaScript Engine ของตัวเองชื่อ [Hermes](https://hermesengine.dev/) ขึ้นมา และเริ่มที่จะนำมาใช้กับ React Native แล้ว ตอนนี้ถูก bundle มาพร้อมใน starter kit ต่าง ๆ แล้ว (แต่ยังไม่ได้ enable เป็น default) ทำให้ developer ที่ต้องการความเร็วแอปเริ่มหันมา enable กันละ โดย React Native แบบเดิมจะทำการฝัง JavaScript source code ที่ถูก minify แล้วมา ทำให้สามารถ beautify และก็อ่านได้เลย ez แต่แบบใหม่ที่ใช้ Hermes ตอน build JavaScript source code จะถูก compile เป็น Hermes bytecode ก่อนและนำมายัดลงแอป
 
-ก็นั้นแหละครับ Factor ความ **ชิบหาย** ครบ ทั้งเป็น VM และมาใหม่ Material และ Tool ไม่มี ต้องไปอ่าน [Hermes Engine](https://github.com/facebook/hermes) source code ใน Github เพื่อจะได้รู้ว่าจะต้องอ่านอะไร อ่านตรงไหน และควรจะ Patch ยังไง จริง ๆ แล้ว AOT snapshot ของ Flutter ก็ไม่ต่างกันมาก  และ Xamarin ก็เปลี่ยนวิธีใหม่เอา DLL ยัดเข้าไปใน Native Lib พวกนี้ก็ยังไม่ค่อยมีคนมาแกะซักเท่าไหร่ วันนี้เลยจะมาแชร์วิธีการทำ Static Analysis สำหรับ React Native แอปครับ
+ก็นั้นแหละครับ Factor ความ **ชิบหาย** ครบ ทั้งเป็น VM และมาใหม่ material และ tool ไม่มี ต้องไปอ่าน [Hermes Engine](https://github.com/facebook/hermes) source code ใน Github เพื่อจะได้รู้ว่าจะต้องอ่านอะไร อ่านตรงไหน และควรจะ patch ยังไง จริง ๆ แล้ว AOT snapshot ของ Flutter ก็ไม่ต่างกันมาก  และ Xamarin ก็เปลี่ยนวิธีใหม่เอา DLL ยัดเข้าไปใน Native Lib พวกนี้ก็ยังไม่ค่อยมีคนมาแกะซักเท่าไหร่ วันนี้เลยจะมาแชร์วิธีการทำ static analysis สำหรับ React Native แอปครับ
 
 ## React Native แบบไม่ Hermes
 
-ถ้าใครเคยทำ Reverse Engineering แอปมือถือมาก่อนจะรู้เลยว่าแอปที่เขียนด้วย React Native มันแกะง่ายมาก จะแทบไม่ต่างจากการแฮกเว็บเท่าไหร่เลย โดยตัวอย่างของบทความนี้ผมจะใช้เป็นแอป Android นะครับ เพราะว่าเข้าถึงง่ายกว่า ส่วน iOS แทบจะไม่ต่างกับ Android เลยแค่ที่จัดเก็บ JavaScript ต่างกัน ผมจะแสดงวิธีการแกะและ patch จาก แอปตัวอย่างต่อไปนี้ครับ
+ถ้าใครเคยทำ reverse engineering แอปมือถือมาก่อนจะรู้เลยว่าแอปที่เขียนด้วย React Native มันแกะง่ายมาก จะแทบไม่ต่างจากการแฮกเว็บเท่าไหร่เลย โดยตัวอย่างของบทความนี้ผมจะใช้เป็นแอป Android นะครับ เพราะว่าเข้าถึงง่ายกว่า ส่วน iOS แทบจะไม่ต่างกับ Android เลยแค่ที่จัดเก็บ JavaScript ต่างกัน ผมจะแสดงวิธีการแกะและ patch จาก แอปตัวอย่างต่อไปนี้ครับ
 
 > ทดลองทำตามได้นะครับ [ReactNativeReverseingLab.apk](https://github.com/bongtrop/react-native-reversing-lab/releases/download/v1.0/ReactNativeReverseingLab.apk)
 
@@ -50,7 +50,7 @@ drwxrwxr-x 7 bongtrop bongtrop   4096 Jan 12 19:04 ..
 var __BUNDLE_START_TIME__=this.nativePerformanceNow?na[...]
 ```
 
-**(3)** เมื่อลองเปิดไฟล์ดังกล่าวจะเห็นว่าเป็น JavaScript soruce code ถูกทำ minify มาทำให้อ่านยาก โดยปกติผมจะทำการ beautify มันก่อนอ่านครับ ผมใช้ tool ชื่อ `js-beautify` สามารถติดตั้งง่าย ๆ ด้วยคำสั่ง `npm install -g js-beautify` รันคำสั่งต่อไปนี้เพื่อ beautify ไฟล์ `index.android.bundle` ครับ
+**(3)** เมื่อลองเปิดไฟล์ดังกล่าวจะเห็นว่าถูกทำ minify มาทำให้อ่านยาก โดยปกติผมจะทำการ beautify มันก่อนอ่านครับ ผมใช้ tool ชื่อ `js-beautify` สามารถติดตั้งง่าย ๆ ด้วยคำสั่ง `npm install -g js-beautify` รันคำสั่งต่อไปนี้เพื่อ beautify ไฟล์ `index.android.bundle` ครับ
 
 ```
 bongtrop@bongtrop-pc:assets/ $ js-beautify -r index.android.bundle 
@@ -98,7 +98,7 @@ bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ cd ..
 
 **(7)** ทำการ sign APK ใหม่อีกครั้ง
 
-สำหรับใครไม่มี key ให้สร้างขึ้นมาก่อนนะครับ คำสั่งนี้ได้เลย
+สำหรับใครไม่มี key ให้สร้างขึ้นมาก่อนนะครับ โดยใช้คำสั่งนี้ได้เลย
 
 ```
 keytool -genkey -v -keystore helloworld.keystore -alias helloworld -keyalg RSA -keysize 2048 -validity 10000
@@ -119,7 +119,7 @@ Enter Passphrase for keystore:
 
 ![React Native 2](https://i.imgur.com/9XQCpKnl.png)
 
-สรุปคือถ้าเป็นแบบเดิมจะเป็น JavaScript source code ที่ถูก minify แล้ว เราสามารถเข้าไปอ่าน หรือแก้ไขได้เหมือนกับเขียน JavaScript ทั่วไปเลยครับ จะเห็นว่าไม่ยากเลย ไม่จำเป็นต้องใช้ tool อะไรมาก เห็นไหมครับว่าชีวิต pentester ง่ายมาก ๆ เมื่อเจอ React Native เราสามารถยัด JavaScript Debuging Tool เข้าไปใน source code และ Debug ตัวแอปได้เหมือนเขียนเว็บก็ยังได้
+สรุปคือถ้าเป็นแบบเดิมจะเป็น JavaScript source code ที่ถูก minify แล้ว เราสามารถเข้าไปอ่าน หรือแก้ไขได้เหมือนกับเขียน JavaScript ทั่วไปเลยครับ จะเห็นว่าไม่ยากเลย ไม่จำเป็นต้องใช้ tool อะไรมาก เห็นไหมครับว่าชีวิต pentester ง่ายมาก ๆ เมื่อเจอ React Native เราสามารถยัด JavaScript debugging tool เข้าไปใน source code และ debug ตัวแอปได้เหมือนเขียนเว็บก็ยังได้
 
 ## React Native แบบ Hermes
 
@@ -127,7 +127,7 @@ Enter Passphrase for keystore:
 
 > สำหรับรายละเอียดเพิ่มเติ่มดูได้จาก [https://reactnative.dev/docs/hermes](https://reactnative.dev/docs/hermes)
 
-หลังจาก build ก็ได้ `index.android.bundle` ที่เป็น Hermes byecode แล้วครับ ใน Ubuntu 20.04 คำสั่ง `file` จะสามารถ Identify format นี้ได้แล้วครับ
+หลังจาก build ก็ได้ `index.android.bundle` ที่เป็น Hermes bytecode แล้วครับ ใน Ubuntu 20.04 คำสั่ง `file` จะสามารถ identify format นี้ได้แล้วครับ
 
 ```
 $ file index.android.bundle
@@ -153,7 +153,7 @@ Disassembly of section .text:
 hbcdump> quit
 ```
 
-จากนั้นถ้าจะแก้อะไรก็ใช้ Hexeditor ไปแก้ในส่วนที่ต้องการแก้ครับ จะเห็นว่าที่ Address 0x0002ca48 จะเหมือนกับ objdump เลย ก็แก้ไปทีละ Byte
+จากนั้นถ้าจะแก้อะไรก็ใช้ hex editor ไปแก้ในส่วนที่ต้องการแก้ครับ จะเห็นว่าที่ address 0x0002ca48 จะเหมือนกับ objdump เลย ก็แก้ไปทีละ byte
 
 ![React Native 3](https://i.imgur.com/7pWByDtl.png)
 
@@ -163,11 +163,11 @@ hbcdump> quit
 pip install hbctool
 ```
 
-มาลองไปทีละ Step กันเลยครับ เหมือนเดิมครับ เมื่อติดตั้งแอปแล้ว หลังจากกดปุ่ม + ไปได้ 10 รอบตัวแอปจะแสดงข้อความ `Increase button has already been broken.` และไม่สามารถเพิ่ม `counter` ได้แล้ว ดังรูป
+มาลองไปทีละ step กันเลยครับ เหมือนเดิมครับ เมื่อติดตั้งแอปแล้ว หลังจากกดปุ่ม + ไปได้ 10 รอบตัวแอปจะแสดงข้อความ `Increase button has already been broken.` และไม่สามารถเพิ่ม `counter` ได้แล้ว ดังรูป
 
 ![React Native 1](https://i.imgur.com/ZDIRFSjl.png)
 
-เราจะต้องเพิ่ม counter ไปให้ถึง 1337 เพื่อจะได้ flag ครับ เราเลยจะต้องทำการ patch Hermes bytecode เพื่อให้ bypass condition ที่ทำการกันไม่ให้เราเอา flag ครับ จริง ๆ แล้วทำได้หลายวิธีครับ 1 คือทำ Static Analysis ล้วน ๆ เพื่อหาวิธี decrypt flag ครับ แต่ในครั้งนี้จะสอนวิธีการ patch ตัว Hermes bytecode ครับ โดนขั้นตอนแรก ๆ จะคล้าย ๆ กับด้านบนครับ คือ
+เราจะต้องเพิ่ม counter ไปให้ถึง 1337 เพื่อจะได้ flag ครับ เราเลยจะต้องทำการ patch Hermes bytecode เพื่อให้ bypass condition ที่ทำการกันไม่ให้เราเอา flag ครับ จริง ๆ แล้วทำได้หลายวิธีครับ 1 คือทำ static analysis ล้วน ๆ เพื่อหาวิธี decrypt flag ครับ แต่ในครั้งนี้จะสอนวิธีการ patch ตัว Hermes bytecode ครับ โดนขั้นตอนแรก ๆ จะคล้าย ๆ กับด้านบนครับ คือ
 
 **(1)** ทำการ unzip ไฟล์ APK ของแอปเป้าหมายออกมาครับ (อาจจะใช้ apktool ก็ได้ครับ ผมจะสอนทำ manual ก่อนเพื่อจะได้ต่อยอดได้) ผมใช้คำสั่ง unzip ดังต่อไปนี้ครับ
 
@@ -194,7 +194,7 @@ Archive:  HermesReversingLab.apk
 
 - `metadata.json`: จะใช้เก็บข้อมูลสำคัญต่าง ๆ ของไฟล์ Hermes bytecode ที่ถูก disassemble มาครับ
 - `instruction.hasm`: จะเป็นไฟล์ที่ใช้เก็บ function ต่าง ๆ ที่ถูก disassemble แล้ว เป็น format ที่ผมสร้างขึ้นมาเองครับ ใครมีแนวคิดต่าง ๆ สามารถเสนอได้ครับ สามารถ แก้ instruction ต่าง ๆ ของแอป ได้ที่ไฟล์นี้
-- `string.json`: จะเป็น String ต่าง ๆ ที่ถูกใช้ในแอป เหมือนกันสามารถแก้ไข String ต่าง ๆ ได้ที่ไฟล์นี้ครับ
+- `string.json`: จะเป็น string ต่าง ๆ ที่ถูกใช้ในแอป เหมือนกันสามารถแก้ไข string ต่าง ๆ ได้ที่ไฟล์นี้ครับ
 
 **(4)** ทำการแก้ไข instruction ของแอปผ่านไฟล์ `instruction.hasm` เลยครับ โดยผมได้ทำการแก้ไข ค่าที่ counter จะต้องเพิ่มไปถึงจาก 1336 ให้เป็น 1 แทนครับ จะได้ไม่ติด condition ที่จะเพิ่ม `counter` ได้ไม่เกิน 10 ครับ มีหลาย ๆ วิธีนะครับ อาจจะแก้ไข opcode จาก `JNotGreaterEqual` เป็น `jmp` แบบอื่น หรือเปลี่ยน address ที่จะ `jmp` ไปเป็น alert flag เลยก็ได้ครับ โดยครั้งนี้ผมจะใช้วิธีแรกครับ คือแก้เลข 1336 ที่ บรรทัด 182890 ในไฟล์ `instruction.hasm` ให้เป็น 1 ครับ
 
@@ -252,7 +252,7 @@ Enter Passphrase for keystore:
 [...]
 ```
 
-**(5)** เมื่อทำการติดตั้งและเปิดแอปก็ + สองครั้งก็จะได้ Flag แล้วครับโดยตัวอย่างการทำทั้งหมด ผมใส่ไว้เป็นไฟล์ gif ใน [hbctool](https://github.com/bongtrop/hbctool) แล้วครับ (ตัวอย่างใน gif จะไม่ได้ทำการ bundle และ unbundle manual นะครับ แต่การ patch จะเหมือนกัน)
+**(5)** เมื่อทำการติดตั้งและเปิดแอปก็กด + สองครั้งก็จะได้ flag แล้วครับโดยตัวอย่างการทำทั้งหมด ผมใส่ไว้เป็นไฟล์ gif ใน [hbctool](https://github.com/bongtrop/hbctool) แล้วครับ (ตัวอย่างใน gif จะไม่ได้ทำการ bundle และ unbundle manual นะครับ แต่การ patch จะเหมือนกัน)
 
 ![hbctool example](https://i.imgur.com/70MBQ2c.gif)
 
@@ -262,8 +262,8 @@ Enter Passphrase for keystore:
 
 ## สรุปนะครับ
 
-ผมทำบทความนี้เพื่ออยากให้ มีคนเก่ง ๆ มาสนใจการทำ In-depth analysis ตัว Framework ต่าง ๆ และส่งต่อให้ Community เพิ่มมากขึ้นครับ เพราะเดียวนี้ Tech มันไปไวมาก จนผมไม่สามารถจะ Research ตามได้ทัน ไม่ทันจริง ๆ ยิ่งตอนยังเป็น Pentester เรื่องแบบนี้ต้องทำนอกเวลางานเท่านั้นเลยครับ พูดง่าย ๆ คือ หาเพื่อนมาช่วย Research นั้นแหละ
+ผมทำบทความนี้เพื่ออยากให้ มีคนเก่ง ๆ มาสนใจการทำ in-depth analysis ตัว framework ต่าง ๆ และส่งต่อให้ community เพิ่มมากขึ้นครับ เพราะเดี๋ยวนี้ tech มันไปไวมาก จนผมไม่สามารถจะ research ตามได้ทัน ไม่ทันจริง ๆ ยิ่งตอนยังเป็น pentester เรื่องแบบนี้ต้องทำนอกเวลางานเท่านั้นเลยครับ พูดง่าย ๆ คือ หาเพื่อนมาช่วย research นั่นแหละ
 
-อย่างไรก็ตาม ผมหวังว่า Tool ที่ผมเขียนและบทความนี้จะเป็นประโยชน์กับ Pentester ทุกคนที่ต้องเจอกับเรื่องร้าย ๆ ที่นับวันการทดสอบระบบยิ่งยากขึ้นนะครับ
+อย่างไรก็ตาม ผมหวังว่า tool ที่ผมเขียนและบทความนี้จะเป็นประโยชน์กับ pentester ทุกคนที่ต้องเจอกับเรื่องร้าย ๆ ที่นับวันการทดสอบระบบยิ่งยากขึ้นนะครับ
 
-สรุปเรื่อง Technique บ้างละกัน Hermes ก็เป็นอะไรที่จะต้องจับตามองนะครับ เพราะว่าการ Enable มันแทบจะไม่มีผลเสียเลย แอปก็ไวขึ้นอย่างเห็นได้ชัด อีกทั้งยังเปิดง่ายด้วยนะ และในอนาคตผมมองว่าถ้า Hermes stable แล้ว React Native แอปทุกแอปน่าจะถูกบังคับเปลี่ยนไปใช้ Hermes ครับ และในอนาคตของอนาคตอีก Facebook น่าจะขยับไปเน้น JIT และ AOT มากขึ้น เหมือนกับที่ Flutter ทำ สำหรับ Pentester **ความชิบหาย * 100** แน่นอนครับ
+สรุปเรื่อง technique บ้างละกัน Hermes ก็เป็นอะไรที่จะต้องจับตามองนะครับ เพราะว่าการ enable มันแทบจะไม่มีผลเสียเลย แอปก็ไวขึ้นอย่างเห็นได้ชัด อีกทั้งยังเปิดง่ายด้วยนะ และในอนาคตผมมองว่าถ้า Hermes stable แล้ว React Native แอปทุกแอปน่าจะถูกบังคับเปลี่ยนไปใช้ Hermes ครับ และในอนาคตของอนาคตอีก Facebook น่าจะขยับไปเน้น JIT และ AOT มากขึ้น เหมือนกับที่ Flutter ทำ สำหรับ pentester **ความชิบหาย * 100** แน่นอนครับ
