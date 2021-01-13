@@ -1,7 +1,7 @@
 ---
 name: bongtrop
 images: ["bongtrop.jpg"]
-twitter: 'gun_bongtrop'
+twitter: 'bongtrop'
 ---
 
 IT Security Consultant, OSCE, Pentest+
