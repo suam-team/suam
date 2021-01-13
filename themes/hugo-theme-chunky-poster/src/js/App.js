@@ -114,5 +114,37 @@ export default {
 
         element.addClass('language-none');
         $('> code', element).addClass('language-none');
+    },
+    resizeImages: () => {
+        const images = document.querySelectorAll('img');
+
+        Array.from(images).forEach(image => {
+        image.addEventListener('load', () => fitImage(image));
+        
+        if (image.complete && image.naturalWidth !== 0)
+            fitImage(image);
+        });
+
+        function fitImage(image) {
+            const aspectRatio = image.naturalWidth / image.naturalHeight;
+            
+            // If image is landscape
+            if (aspectRatio > 1) {
+                image.style.width = '100%';
+                image.style.height = 'auto';
+            }
+            
+            // If image is portrait
+            else if (aspectRatio < 1) {
+                image.style.width = 'auto';
+                image.style.maxHeight = '50%';
+            }
+            
+            // Otherwise, image is square
+            else {
+                image.style.maxWidth = '100%';
+                image.style.height = 'auto';
+            }
+        }
     }
 };

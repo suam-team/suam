@@ -11,4 +11,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     App.navbarFade();
     App.lightbox();
     App.syntaxHighlight();
+    App.resizeImages();
 });

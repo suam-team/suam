@@ -4,3 +4,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import '~ekko-lightbox/dist/ekko-lightbox.css';
 @import "chunky-poster";
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: none;
+}
