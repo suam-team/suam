@@ -116,7 +116,7 @@ export default {
         $('> code', element).addClass('language-none');
     },
     resizeImages: () => {
-        const images = document.querySelectorAll('img');
+        const images = document.querySelectorAll('.content img');
 
         Array.from(images).forEach(image => {
         image.addEventListener('load', () => fitImage(image));
