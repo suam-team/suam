@@ -50,7 +50,7 @@ drwxrwxr-x 7 bongtrop bongtrop   4096 Jan 12 19:04 ..
 var __BUNDLE_START_TIME__=this.nativePerformanceNow?na[...]
 ```
 
-**(3)** เมื่อลองเปิดไฟล์ดังกล่าวจะเห็นว่าถูกทำ minify มาทำให้อ่านยาก โดยปกติผมจะทำการ beautify มันก่อนอ่านครับ ผมใช้ tool ชื่อ `js-beautify` สามารถติดตั้งง่าย ๆ ด้วยคำสั่ง `npm install -g js-beautify` รันคำสั่งต่อไปนี้เพื่อ beautify ไฟล์ `index.android.bundle` ครับ
+**(3)** เมื่อลองเปิดไฟล์ดังกล่าวจะเห็นว่าเป็น JavaScript soruce code ถูกทำ minify มาทำให้อ่านยาก โดยปกติผมจะทำการ beautify มันก่อนอ่านครับ ผมใช้ tool ชื่อ `js-beautify` สามารถติดตั้งง่าย ๆ ด้วยคำสั่ง `npm install -g js-beautify` รันคำสั่งต่อไปนี้เพื่อ beautify ไฟล์ `index.android.bundle` ครับ
 
 ```
 bongtrop@bongtrop-pc:assets/ $ js-beautify -r index.android.bundle 
@@ -98,7 +98,7 @@ bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ cd ..
 
 **(7)** ทำการ sign APK ใหม่อีกครั้ง
 
-สำหรับใครไม่มี key ให้สร้างขึ้นมาก่อนนะครับ command นี้ได้เลย
+สำหรับใครไม่มี key ให้สร้างขึ้นมาก่อนนะครับ คำสั่งนี้ได้เลย
 
 ```
 keytool -genkey -v -keystore helloworld.keystore -alias helloworld -keyalg RSA -keysize 2048 -validity 10000
@@ -115,7 +115,7 @@ Enter Passphrase for keystore:
 [...]
 ```
 
-**(8)** ทำการติดตั้งแอปด้วย APK ใหม่ (อย่าลืมลบอันเก่า) และทำการกด + จะสามารถกดไปเรื่อย ๆ จน alert `You win!!` โชขึ้นมาดังรูปครับ
+**(8)** ทำการติดตั้งแอปด้วย APK ใหม่ (อย่าลืมลบอันเก่า) และทำการกด + จะสามารถกดไปเรื่อย ๆ จน alert `You win!!` โชว์ขึ้นมาดังรูปครับ
 
 ![React Native 2](https://i.imgur.com/9XQCpKnl.png)
 
@@ -136,7 +136,7 @@ index.android.bundle: Hermes JavaScript bytecode, version 74
 
 สำหรับใครที่อยากลองทำตามไปด้วยสามารถไปเล่นได้ที่ [lab.suam.wtf](https://lab.suam.wtf) ที่ข้อ [Hermes Reversing Lab](https://lab.suam.wtf/lab/suam-team/hermes-reversing-lab) ครับ
 
-ถ้าลองตรวจสอบไฟล์ดูจะพบว่ามันอ่านไม่ออกครับ ถ้าเป็น .NET หรือ Java bytecode ทุกคนก็จะสามารถไปหา Decompiler มา decompile ได้แล้วใช่ไหมครับ แต่สำหรับของใหม่อย่าง Hermes อย่าได้หวังครับ สิ่งที่เราสามารถทำได้คือใช้คำสั่ง `hbcdump` ที่ทาง Hermes Engine มีให้นะครับ สามารถโหลดได้จาก Github ของทาง [Hermes](https://github.com/facebook/hermes/releases) เลยครับ แต่ที่ต้องระวังคือแต่ละ release ของ Hermes จะรองรับ Hermes bytecode ใน version ที่ต่างกัน จะต้องไปดู Hermes bytecode version ที่ไฟล์ `/include/hermes/BCGen/HBC/BytecodeFileFormat.h` อยู่ที่ประมาณบรรทัดที่ 33 ครับ สำหรับ Lab นี้เป็น Version 74 ครับจะต้องใช้ [Hermes Release v0.6.0](https://github.com/facebook/hermes/releases/tag/v0.6.0) โหลดมาละใช้ได้เลยครับ จะอยู่ที่ไฟล์ `hbcdump` เลย การใช้งานก็ง่าย ๆ เลยครับ
+ถ้าลองตรวจสอบไฟล์ดูจะพบว่ามันอ่านไม่ออกครับ ถ้าเป็น .NET หรือ Java bytecode ทุกคนก็จะสามารถไปหา decompiler มา decompile ได้แล้วใช่ไหมครับ แต่สำหรับของใหม่อย่าง Hermes อย่าได้หวังครับ สิ่งที่เราสามารถทำได้คือใช้คำสั่ง `hbcdump` ที่ทาง Hermes Engine มีให้นะครับ สามารถโหลดได้จาก Github ของทาง [Hermes](https://github.com/facebook/hermes/releases) เลยครับ แต่ที่ต้องระวังคือแต่ละ release ของ Hermes จะรองรับ Hermes bytecode ใน version ที่ต่างกัน จะต้องไปดู Hermes bytecode version ที่ไฟล์ `/include/hermes/BCGen/HBC/BytecodeFileFormat.h` อยู่ที่ประมาณบรรทัดที่ 33 ครับ สำหรับ lab นี้เป็น version 74 ครับจะต้องใช้ [Hermes Release v0.6.0](https://github.com/facebook/hermes/releases/tag/v0.6.0) โหลดมาละใช้ได้เลยครับ จะอยู่ที่ไฟล์ `hbcdump` เลย การใช้งานก็ง่าย ๆ เลยครับ
 
 ```
 $ ./hbcdump -objdump-disassemble index.android.bundle
@@ -157,7 +157,7 @@ hbcdump> quit
 
 ![React Native 3](https://i.imgur.com/7pWByDtl.png)
 
-จะเห็นว่ามันทำยาก ถึงจะมี Tool ของทาง Hermes มาให้ใช้ แต่ก็ไม่ได้แสดงข้อมูลที่ครบและดูง่าย การ Patch ก็ต้องมาทำที่ Raw byte จาก Hexeditor อยู่ดี เหนื่อยสินะครับ ได้เวลาขายของ ผมและเพื่อน ๆ ที่เจอปัญหาการทำ Reverse Engineering กับ Hermes bytecode ได้ทำ Tool ชื่อ [hbctool](https://github.com/bongtrop/hbctool) ขึ้นมาช่วยในการ Analyze และ Patch Hermes bytecode ครับ อารมจะคล้าย ๆ กับ smali ของ dalvik (แต่กากกว่าเยอะ) สามารถติดตั้งได้ง่าย ๆ
+จะเห็นว่ามันทำยาก ถึงจะมี tool ของทาง Hermes มาให้ใช้ แต่ก็ไม่ได้แสดงข้อมูลที่ครบและดูง่าย การ patch ก็ต้องมาทำที่ Raw byte จาก hex editor อยู่ดี เหนื่อยสินะครับ ได้เวลาขายของ ผมและเพื่อน ๆ ที่เจอปัญหาการทำ reverse engineering กับ Hermes bytecode ได้ทำ tool ชื่อ [hbctool](https://github.com/bongtrop/hbctool) ขึ้นมาช่วยในการ analyze และ patch Hermes bytecode ครับ อารมจะคล้าย ๆ กับ smali ของ Dalvik (แต่กากกว่าเยอะ) สามารถติดตั้งได้ง่าย ๆ
 
 ```
 pip install hbctool
@@ -181,7 +181,7 @@ Archive:  HermesReversingLab.apk
 [...]
 ```
 
-**(2)** จากนั้นทำการ disasm Hermes bytecode ไฟล์ โดยใช้ `hbctool` ครับ
+**(2)** จากนั้นทำการ disassemble Hermes bytecode ไฟล์ โดยใช้ `hbctool` ครับ
 
 ```
 (hack) bongtrop@bongtrop-pc:lab/ $ hbctool disasm HermesReversingLab/assets/index.android.bundle HermesReversingLabHASM
@@ -190,13 +190,13 @@ Archive:  HermesReversingLab.apk
 [*] Done
 ```
 
-**(2)** หลังจากที่ disassemble ออกมาเป็น HASM (ผมตั้งชื่อขึ้นมาเองครับ ย่อมาจาก Hermes Assembly) โดยภายใน `HermesReversingLabHASM` จะมีอยู่ 3 ไฟล์ดังนี้ครับ
+**(3)** หลังจากที่ disassemble ออกมาเป็น HASM (ผมตั้งชื่อขึ้นมาเองครับ ย่อมาจาก Hermes Assembly) โดยภายใน `HermesReversingLabHASM` จะมีอยู่ 3 ไฟล์ดังนี้ครับ
 
 - `metadata.json`: จะใช้เก็บข้อมูลสำคัญต่าง ๆ ของไฟล์ Hermes bytecode ที่ถูก disassemble มาครับ
 - `instruction.hasm`: จะเป็นไฟล์ที่ใช้เก็บ function ต่าง ๆ ที่ถูก disassemble แล้ว เป็น format ที่ผมสร้างขึ้นมาเองครับ ใครมีแนวคิดต่าง ๆ สามารถเสนอได้ครับ สามารถ แก้ instruction ต่าง ๆ ของแอป ได้ที่ไฟล์นี้
 - `string.json`: จะเป็น String ต่าง ๆ ที่ถูกใช้ในแอป เหมือนกันสามารถแก้ไข String ต่าง ๆ ได้ที่ไฟล์นี้ครับ
 
-**(2)** ทำการแก้ไข Instruction ของแอปผ่านไฟล์ `instruction.hasm` เลยครับ โดยผมได้ทำการแก้ไข ค่าที่ counter จะต้องเพิ่มไปถึงจาก 1336 ให้เป็น 1 แทนครับ จะได้ไม่ติด condition ที่จะเพิ่ม `counter` ได้ไม่เกิน 10 ครับ มีหลาย ๆ วิธีนะครับ อาจจะแก้ไข opcode จาก `JNotGreaterEqual` เป็น jmp แบบอื่น หรือเปลี่ยน Addr ที่จะ `jmp` ไปเป็น alert flag เลยก็ได้ครับ โดยครั้งนี้ผมจะใช้วิธีแรกครับ คือแก้เลข 1336 ที่ บรรทัด 182890 ในไฟล์ `instruction.hasm` ให้เป็น 1 ครับ
+**(4)** ทำการแก้ไข instruction ของแอปผ่านไฟล์ `instruction.hasm` เลยครับ โดยผมได้ทำการแก้ไข ค่าที่ counter จะต้องเพิ่มไปถึงจาก 1336 ให้เป็น 1 แทนครับ จะได้ไม่ติด condition ที่จะเพิ่ม `counter` ได้ไม่เกิน 10 ครับ มีหลาย ๆ วิธีนะครับ อาจจะแก้ไข opcode จาก `JNotGreaterEqual` เป็น `jmp` แบบอื่น หรือเปลี่ยน address ที่จะ `jmp` ไปเป็น alert flag เลยก็ได้ครับ โดยครั้งนี้ผมจะใช้วิธีแรกครับ คือแก้เลข 1336 ที่ บรรทัด 182890 ในไฟล์ `instruction.hasm` ให้เป็น 1 ครับ
 
 จาก
 
@@ -216,7 +216,7 @@ Archive:  HermesReversingLab.apk
 [...]
 ```
 
-**(3)** Save ไฟล์และทำการ assemble HASM กลับไปเป็น HBC (Hermes ByteCode) ครับ โดยใช้ `hbctool` เหมือนเดิม
+**(5)** save ไฟล์และทำการ assemble HASM กลับไปเป็น HBC (Hermes Bytecode) ครับ โดยใช้ `hbctool` เหมือนเดิม
 
 ```
 (hack) bongtrop@bongtrop-pc:lab/ $ hbctool asm HermesReversingLabHASM HermesReversingLab/assets/index.android.bundle 
@@ -225,7 +225,7 @@ Archive:  HermesReversingLab.apk
 [*] Done
 ```
 
-**(4)** ทำการลบ signature ไฟล์ เดิมทิ้งและทำการ zip แอปกลับไปเป็น APK ครับ
+**(6)** ทำการลบ signature ไฟล์ เดิมทิ้งและทำการ zip แอปกลับไปเป็น APK ครับ
 
 ```
 (hack) bongtrop@bongtrop-pc:lab/ $ cd HermesReversingLab         
@@ -241,7 +241,7 @@ Archive:  HermesReversingLab.apk
 (hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ cd ..
 ```
 
-**(4)** Sign ด้วยวิธีเดิมครับ
+**(7)** sign ด้วยวิธีเดิมครับ
 
 ```
 (hack) bongtrop@bongtrop-pc:lab/ $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore helloworld.keystore HermesReversingLab.patch.apk helloworld
