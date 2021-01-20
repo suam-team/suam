@@ -7,6 +7,8 @@ description = "วิธีการแกะการทำงานของ A
 
 ![banner](https://i.imgur.com/cCqu6la.png)
 
+> For english version, please navigate to [https://suam.wtf/posts/react-native-application-static-analysis-th/](https://suam.wtf/posts/react-native-application-static-analysis-th/).
+
 ในปี 2020 ที่ผ่านมา ผมทำงาน pentest เจอแอปที่ถูกพัฒนาด้วย cross-platform framework ต่าง ๆ เยอะขึ้นมาก เช่น [Xamarin](https://dotnet.microsoft.com/apps/xamarin), [React Native](https://reactnative.dev/), หรือ [Flutter](https://flutter.dev/) และผมคิดว่าในปีหลัง ๆ ก็น่าจะเจอบ่อยขึ้นไปอีก อีกทั้งในการทำ reverse engineering หรือการทำ static analysis ของแอปใน framework ต่าง ๆ ก็จะมีวิธีการที่ไม่เหมือนกันเลย ยิ่งเป็น framework ที่ถูกสร้างขึ้นใหม่จะไม่มี material หรือ tool ที่ช่วยในการทำ analysis อยู่เลย ทำให้การทำ static analysis ทำได้ยากมาก รวมไปถึงการ bypass logic หรือ protection ต่าง ๆ ที่ต้องทำการ patch แอป ก็จะแทบเป็นไปไม่ได้เลยถ้าไม่เข้าใจ Internal ของ framework นั้น ๆ
 
 เมื่อก่อน React Native เป็น framework ที่เจอบ่อยมาก และทำ reverse engineering ง่ายกว่าเพื่อน แต่ว่าทาง Facebook ได้เริ่มสร้าง JavaScript Engine ของตัวเองชื่อ [Hermes](https://hermesengine.dev/) ขึ้นมา และเริ่มที่จะนำมาใช้กับ React Native แล้ว ตอนนี้ถูก bundle มาพร้อมใน starter kit ต่าง ๆ แล้ว (แต่ยังไม่ได้ enable เป็น default) ทำให้ developer ที่ต้องการความเร็วแอปเริ่มหันมา enable กันละ โดย React Native แบบเดิมจะทำการฝัง JavaScript source code ที่ถูก minify แล้วมา ทำให้สามารถ beautify และก็อ่านได้เลย ez แต่แบบใหม่ที่ใช้ Hermes ตอน build JavaScript source code จะถูก compile เป็น Hermes bytecode ก่อนและนำมายัดลงแอป
@@ -252,7 +254,7 @@ Enter Passphrase for keystore:
 [...]
 ```
 
-**(5)** เมื่อทำการติดตั้งและเปิดแอปก็กด + สองครั้งก็จะได้ flag แล้วครับโดยตัวอย่างการทำทั้งหมด ผมใส่ไว้เป็นไฟล์ gif ใน [hbctool](https://github.com/bongtrop/hbctool) แล้วครับ (ตัวอย่างใน gif จะไม่ได้ทำการ bundle และ unbundle manual นะครับ แต่การ patch จะเหมือนกัน)
+**(8)** เมื่อทำการติดตั้งและเปิดแอปก็กด + สองครั้งก็จะได้ flag แล้วครับโดยตัวอย่างการทำทั้งหมด ผมใส่ไว้เป็นไฟล์ gif ใน [hbctool](https://github.com/bongtrop/hbctool) แล้วครับ (ตัวอย่างใน gif จะไม่ได้ทำการ bundle และ unbundle manual นะครับ แต่การ patch จะเหมือนกัน)
 
 ![hbctool example](https://i.imgur.com/70MBQ2c.gif)
 
@@ -262,7 +264,7 @@ Enter Passphrase for keystore:
 
 ## สรุปนะครับ
 
-ผมทำบทความนี้เพื่ออยากให้ มีคนเก่ง ๆ มาสนใจการทำ in-depth analysis ตัว framework ต่าง ๆ และส่งต่อให้ community เพิ่มมากขึ้นครับ เพราะเดี๋ยวนี้ tech มันไปไวมาก จนผมไม่สามารถจะ research ตามได้ทัน ไม่ทันจริง ๆ ยิ่งตอนยังเป็น pentester เรื่องแบบนี้ต้องทำนอกเวลางานเท่านั้นเลยครับ พูดง่าย ๆ คือ หาเพื่อนมาช่วย research นั่นแหละ
+ผมทำบทความนี้เพื่ออยากให้ มีคนเก่ง ๆ มาสนใจการทำ in-depth analysis ตัว framework ต่าง ๆ และส่งต่อให้ community เพิ่มมากขึ้นครับ เพราะเดี๋ยวนี้ tech มันไปไวมาก จนผมไม่สามารถจะ research ตามได้ทัน ไม่ทันจริง ๆ ยิ่งตอนยังเป็น pentester เรื่องแบบนี้ต้องทำนอกเวลางานเท่านั้นเลยครับ พูดง่าย ๆ คือช่วย pentester ตาดำ ๆ แบบผม ให้ใช้ชีวิตได้อย่างราบลื่นด้วย ด้วยการแบ่งปัญความรู้ด้วยเถอะครับ T^T
 
 อย่างไรก็ตาม ผมหวังว่า tool ที่ผมเขียนและบทความนี้จะเป็นประโยชน์กับ pentester ทุกคนที่ต้องเจอกับเรื่องร้าย ๆ ที่นับวันการทดสอบระบบยิ่งยากขึ้นนะครับ
 
