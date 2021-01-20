@@ -7,7 +7,7 @@ description = "วิธีการแกะการทำงานของ A
 
 ![banner](https://i.imgur.com/cCqu6la.png)
 
-> For english version, please navigate to [https://suam.wtf/posts/react-native-application-static-analysis-th/](https://suam.wtf/posts/react-native-application-static-analysis-th/).
+> For english version, please navigate to [https://suam.wtf/posts/react-native-application-static-analysis-en/](https://suam.wtf/posts/react-native-application-static-analysis-en/).
 
 ในปี 2020 ที่ผ่านมา ผมทำงาน pentest เจอแอปที่ถูกพัฒนาด้วย cross-platform framework ต่าง ๆ เยอะขึ้นมาก เช่น [Xamarin](https://dotnet.microsoft.com/apps/xamarin), [React Native](https://reactnative.dev/), หรือ [Flutter](https://flutter.dev/) และผมคิดว่าในปีหลัง ๆ ก็น่าจะเจอบ่อยขึ้นไปอีก อีกทั้งในการทำ reverse engineering หรือการทำ static analysis ของแอปใน framework ต่าง ๆ ก็จะมีวิธีการที่ไม่เหมือนกันเลย ยิ่งเป็น framework ที่ถูกสร้างขึ้นใหม่จะไม่มี material หรือ tool ที่ช่วยในการทำ analysis อยู่เลย ทำให้การทำ static analysis ทำได้ยากมาก รวมไปถึงการ bypass logic หรือ protection ต่าง ๆ ที่ต้องทำการ patch แอป ก็จะแทบเป็นไปไม่ได้เลยถ้าไม่เข้าใจ Internal ของ framework นั้น ๆ
 
