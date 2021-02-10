@@ -61,6 +61,9 @@ author = "authors"
   [params.commento]
     enable = false
     url = "https://commento.io"
+  
+  [params.KaTex]
+    enable = true
 
 [markup]
   [markup.highlight]

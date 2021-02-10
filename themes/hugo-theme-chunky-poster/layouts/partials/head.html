@@ -33,25 +33,32 @@
   gtag('config', 'UA-173363806-1');
 </script>
 
-{{ if .Site.Params.prismJS.enable }}
-    {{ if .Site.Params.prismJS.theme }}
+
+{{- if .Site.Params.prismJS.enable -}}
+    {{- if .Site.Params.prismJS.theme -}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-{{ .Site.Params.prismJS.theme }}.min.css">
-    {{ else }}
+    {{- else -}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
-    {{ end }}
+    {{- end -}}
+{{- end -}}
+
+{{ if .Site.Params.KaTex.enable }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
 {{ end }}
 
-{{ with index .Site.Data "chunky-poster" }}
-    {{ range $vendor := .assets }}
-        {{ if $vendor.css }}
-            <link rel="stylesheet" href="{{ print "dist/" $vendor.css | relURL }}">
-        {{ end }}
-    {{ end }}
-{{ end }}
+{{- with index .Site.Data "chunky-poster" -}}
+    {{- range $vendor := .assets -}}
+        {{- if $vendor.css -}}
+        <link rel="stylesheet" href="{{ print "dist/" $vendor.css | relURL }}">
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
 
-{{ range .Site.Params.customCSS -}}
+
+{{- range .Site.Params.customCSS -}}
     <link rel="stylesheet" href="{{ "css/" | relURL }}{{ . }}">
-{{ end }}
+{{- end -}}
+
 
 <link rel="canonical" href="{{ .Permalink }}">
 {{- with .OutputFormats.Get "RSS" }}
