@@ -35,7 +35,7 @@ GCM ย่อมาจาก [Galois/Counter Mode](https://en.wikipedia.org/wiki
 | $C_i$ | Ciphertext ใน Block ที่ i |
 | $A$ | เป็นข้อมูลเพิ่มเติมเพื่อเอาไว้ทำ Authentication |
 | $Nonce$ | ก็ Nonce นั่นแหละ ใน GCM จะมีขนาด 12 bytes หรือ 96 bits |
-| $cnt$ | ตัวเลข Counter เหมือนกับ CTR มีขนาด 4 byttes |
+| $cnt$ | ตัวเลข Counter เหมือนกับ CTR มีขนาด 4 bytes |
 | $J_i$ | เป็น Counter Block ใน Block ที่ $i$ จะเป็นการต่อกันของ $Nonce$ และ $cnt$ มีขนาด 128 bits หรือ 16 bytes โดย $cnt$ จะมีค่าคือ $i+1 \mod 2^{32}$ ตัวอย่างเช่น $J_0 = IV \mathbin\Vert 0^{31} \mathbin\Vert 1$ |
 | $Enc_k(X)$ | จะเป็นการ Encrypt $X$ ด้วย Key $k$ โดยใช้ Block Cipher Encryption เช่น AES |
 | $H$ | คือ $Enc_k(0^{128})$ |

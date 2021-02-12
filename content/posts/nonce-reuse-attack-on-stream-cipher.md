@@ -109,7 +109,7 @@ Ciphertext = Keystream ^ "I hate you"
 3. เมื่อนาย Bob ได้รับ `Ciphertext` และทำการถอดรหัสก็พบว่าเป็นข้อความ "I hate you" และบอกเลิกนางสาว Alice
 ```
 Keystream = PRNG(Key, Nonce)
-Plaintext = Keystream ^ Ciphertext = "I Hate you"
+Plaintext = Keystream ^ Ciphertext = "I hate you"
 ```
 
 4. จบปิ้ง
