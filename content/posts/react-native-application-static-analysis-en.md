@@ -165,7 +165,7 @@ Then, if you want to patch it, use your favorite hex editor tool to modify the `
 
 ![React Native 3](https://i.imgur.com/7pWByDtl.png)
 
-It can be seen that it is still hard even when the Hermes team provides the `hbctool` for us. The `hbctool` doesn't show all the important information in the assembly. And to patch the application, editing raw bytes with a hex editor is still required.
+It can be seen that it is still hard even when the Hermes team provides the `hbcdump` for us. The `hbcdump` doesn't show all the important information in the assembly. And to patch the application, editing raw bytes with a hex editor is still required.
 
 Therefore, I created a tool named [hbctool](https://github.com/bongtrop/hbctool) to help analyze and patch Hermes bytecode from React Native application. To install it, execute the following command.
 
