@@ -17,7 +17,7 @@ theme = "hugo-theme-chunky-poster"
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "https://www.facebook.com/photo.php?fbid=3303186886378184&set=a.540950052601895&type=3"
+    url = "/about"
     weight = 0
 
 [taxonomies]
