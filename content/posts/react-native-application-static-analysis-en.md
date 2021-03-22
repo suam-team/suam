@@ -3,6 +3,7 @@ authors = ["bongtrop",]
 title = "React Native Application Static Analysis [English]"
 date = "2021-01-20"
 description = "The reverse engineer of react native application"
+images = ["https://i.imgur.com/cCqu6la.png",]
 +++
 
 ![banner](https://i.imgur.com/cCqu6la.png)

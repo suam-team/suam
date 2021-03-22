@@ -3,6 +3,7 @@ authors = ["bongtrop",]
 title = "Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 2"
 date = "2021-02-10"
 description = "ความเสี่ยงและวิธีการแฮก Stream Cipher ในชิวิตประจำวัน Part 2"
+images = ["https://i.imgur.com/caEa57b.png",]
 +++
 
 ![banner](https://i.imgur.com/caEa57b.png)

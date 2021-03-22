@@ -3,6 +3,7 @@ authors = ["bongtrop",]
 title = "React Native Application Static Analysis [Thai]"
 date = "2021-01-12"
 description = "วิธีการแกะการทำงานของ Application ที่ถูกพัฒนามาจาก React Native"
+images = ["https://i.imgur.com/cCqu6la.png",]
 +++
 
 ![banner](https://i.imgur.com/cCqu6la.png)

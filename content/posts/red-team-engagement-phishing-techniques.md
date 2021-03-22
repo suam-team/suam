@@ -3,6 +3,7 @@ authors = ["P",]
 title = "Red Team Engagement: Phishing Techniques"
 date = "2020-07-06"
 description = "สรุปเทคนิค Phishing สำหรับการทำ Red Team Engagement"
+images = ["https://i.imgur.com/5FCon4F.png",]
 +++
 
 ![cover](https://i.imgur.com/5FCon4F.png)

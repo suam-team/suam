@@ -3,9 +3,10 @@ authors = ["Jusmistic",]
 title = "Linux x86-64 Execve with Socket Reuse"
 date = "2021-03-22"
 description = "เขียน Shellcode ทำ Socket Reuse บน Linux x86-64 ยังไง มาดูกันค้าบ"
+images = ["https://i.imgur.com/4imapAs.png",]
 +++
 
-![banner](https://i.imgur.com/4imapAs.png)
+![cover](https://i.imgur.com/4imapAs.png)
 
 ช่วงนี้อ่านเรื่อง socket reuse ดูเห็น Material เป็น x86 ซะส่วนใหญ่ ยังไม่เห็น shellcode ที่เป็น x86-64 เลย (ผมพยายามหาแล้ว แต่ไม่เจออ่ะ ใครเจอเม้นบอกด้วยนะครับ)
 
