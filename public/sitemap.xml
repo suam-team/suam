@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://suam.wtf/</loc>
-    <lastmod>2021-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-06T14:51:36+07:00</lastmod>
   </url><url>
-    <loc>https://suam.wtf/authors/bongtrop/</loc>
-    <lastmod>2021-03-24T00:00:00+00:00</lastmod>
+    <loc>https://suam.wtf/authors/vanitas/</loc>
+    <lastmod>2022-03-06T14:51:36+07:00</lastmod>
   </url><url>
     <loc>https://suam.wtf/authors/</loc>
-    <lastmod>2021-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2022-03-06T14:51:36+07:00</lastmod>
   </url><url>
     <loc>https://suam.wtf/posts/</loc>
+    <lastmod>2022-03-06T14:51:36+07:00</lastmod>
+  </url><url>
+    <loc>https://suam.wtf/posts/road-to-osep-introduction-review-and-guidelines/</loc>
+    <lastmod>2022-03-06T14:51:36+07:00</lastmod>
+  </url><url>
+    <loc>https://suam.wtf/authors/bongtrop/</loc>
     <lastmod>2021-03-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://suam.wtf/posts/vpn-myth/</loc>
@@ -67,8 +73,6 @@
   </url><url>
     <loc>https://suam.wtf/posts/create-a-blog-post-with-hugo/</loc>
     <lastmod>2020-01-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://suam.wtf/authors/vanitas/</loc>
   </url><url>
     <loc>https://suam.wtf/categories/</loc>
   </url><url>

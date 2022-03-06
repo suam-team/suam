@@ -6,7 +6,16 @@
     <description>Recent content in Authors on SUAM</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suam.wtf/authors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Mar 2022 14:51:36 +0700</lastBuildDate><atom:link href="https://suam.wtf/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/vanitas/</link>
+      <pubDate>Sun, 06 Mar 2022 14:51:36 +0700</pubDate>
+      
+      <guid>https://suam.wtf/authors/vanitas/</guid>
+      <description>Offensive Researcher, Red Teaming Enthusiast.</description>
+    </item>
+    
     <item>
       <title></title>
       <link>https://suam.wtf/authors/bongtrop/</link>
@@ -50,15 +59,6 @@
       
       <guid>https://suam.wtf/authors/ruthlezs/</guid>
       <description>OSCP, PCIP, CEH, Project+</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://suam.wtf/authors/vanitas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://suam.wtf/authors/vanitas/</guid>
-      <description>Offensive Researcher, Red Teaming Enthusiast.</description>
     </item>
     
   </channel>

@@ -1,6 +1,6 @@
 ---
 name: Vanitas
-images: ["profile.jpg"]
+images: ["vanitas.png"]
 ---
 
 Offensive Researcher, Red Teaming Enthusiast.
