@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on SUAM</title>
+    <link>https://suam.wtf/authors/</link>
+    <description>Recent content in Authors on SUAM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suam.wtf/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/bongtrop/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/bongtrop/</guid>
+      <description>IT Security Consultant, OSCE, Pentest+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/jusmistic/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/jusmistic/</guid>
+      <description>อยากมีแฟนรวย เรียนเก่ง นิสัยดี และสามคนนี้ไม่รู้จักกัน</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/p/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/p/</guid>
+      <description>Defensive security engineer. Writer at Pandora.sh</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/eegeeg/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/eegeeg/</guid>
+      <description>ไม่กินเนื้อ</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/ruthlezs/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/ruthlezs/</guid>
+      <description>OSCP, PCIP, CEH, Project+</description>
+    </item>
+    
+  </channel>
+</rss>

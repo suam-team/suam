@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ | 
+    SUAM
+  
+</title><meta name="description" content="กระบวนการการขอ AWS เพื่อปลดล็อคลิมิตการส่งอีเมลสำหรับการทำ Phishing Simulation"><meta name="author" content="P">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/favicon-32x32.png " sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c344b">
+<link rel="icon" href="/favicon.ico">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173363806-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173363806-1');
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="/dist/main.min.css"><link rel="canonical" href="https://suam.wtf/posts/aws-removing-email-sending-limit-for-phishing-simulation/"><meta property="og:title" content="Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ" />
+<meta property="og:description" content="กระบวนการการขอ AWS เพื่อปลดล็อคลิมิตการส่งอีเมลสำหรับการทำ Phishing Simulation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suam.wtf/posts/aws-removing-email-sending-limit-for-phishing-simulation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-03T00:00:00+00:00" />
+
+<meta itemprop="name" content="Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ">
+<meta itemprop="description" content="กระบวนการการขอ AWS เพื่อปลดล็อคลิมิตการส่งอีเมลสำหรับการทำ Phishing Simulation"><meta itemprop="datePublished" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="287">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ"/>
+<meta name="twitter:description" content="กระบวนการการขอ AWS เพื่อปลดล็อคลิมิตการส่งอีเมลสำหรับการทำ Phishing Simulation"/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://suam.wtf/">SUAM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                
+            
+                <li class="nav-item">
+                    <a href="https://webring.wonderful.software#suam.wtf" title="วงแหวนเว็บ" target="_blank" class="nav-link" rel="noopener">
+                        <img src="/images/webring.black.svg" width="25px" height="25px" alt="วงแหวนเว็บ" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">August 3, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>287 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>2 mins read</span>
+                        </div>
+
+                        <h1>Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/p/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/p/P_hub8ae528d22e1150bc315728e2e777d07_29774_64x0_resize_q75_box.jpg 1x, /authors/p/P_hub8ae528d22e1150bc315728e2e777d07_29774_128x0_resize_q100_box.jpg 2x, /authors/p/P_hub8ae528d22e1150bc315728e2e777d07_29774_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/p/P_hub8ae528d22e1150bc315728e2e777d07_29774_64x0_resize_q75_box.jpg" class="rounded-circle" alt="P">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/p/" class="small">P</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@pe3zx">@pe3zx</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p>การทำ Phishing simulation นั้นเป็นกิจกรรมซึ่งมีลักษณะคล้ายกับการปรุงอาหาร สูตรอาหารหนึ่งสูตรสามารถปรุงได้หลายวิธีการและสร้างความอร่อยได้ในหลากหลายรูปแบบ การทำ Phishing simulation ก็มีปัจจัยซึ่งถูกแอบซ่อนไว้อยู่หลายปัจจัยที่จะช่วยการันตีในความสำเร็จของปฏิบัติการโดยอาศัยการพึ่งพาผู้ใช้บริการให้น้อยที่สุด มีปฏิบัติการที่เสมือนจริงที่สุดตามลักษณะภัยคุกคามที่เป็นไปได้ที่ผู้ใช้บริการของเราจะเผชิญ และคงไว้ซึ่งความลับของปฏิบัติการให้มากที่สุด</p>
+<p>ปัจจัยที่มักได้รับความสนใจและความทุ่มเทเป็นอย่างสูงโดยเหล่า Red team มักจะล้อมอยู่ในประเด็นของ<strong>การข้ามผ่านการตรวจจับและเฝ้าระวัง</strong> ซึ่งเราได้มีการพูดถึงไปบางส่วนแล้วในโพสต์ Red Team Engagement ที่ผ่านมา</p>
+<blockquote>
+<p>ดูเทคนิคการทำ Phishing technique ให้แนบเนียนได้ที่โพสต์
+<a href="https://suam.wtf/post/red-team-engagement-phishing-techniques/">Red Team Engagement: Phishing Techniques</a></p>
+</blockquote>
+<p>อย่างไรก็ตามอีกหนึ่งปัจจัยที่มักถูกลืมหรือไม่ได้รับความสนใจมากเท่าไหร่นั้นคือ<strong>ชัยภูมิ</strong>ในการปฏิบัติการ หรือ Infrastructure ที่เราจะใช้ในการจำลองพฤติกรรมของภัยคุกคาม ซึ่งวันนี้เราจะมาพูดถึงทั้งในประเด็นของการเลือกและพัฒนาชัยภูมิให้เหมาะสม รวมไปถึงประเด็นในการใช้บริการของ AWS เป็นชัยภูมิในการจำลองการโจมตีครับ</p>
+<h2 id="battle-of-reputation">Battle of Reputation</h2>
+<p>เมื่อพูดถึงประเด็นในเรื่องของ Infrastructure สำหรับการทำ Phishing simulation นั้น คำสำคัญซึ่งมีผลต่อความสำเร็จและความแนบเนียนของปฏิบัติการก็ยังคงเป็นคำเดิมๆ ตามตำรา Social engineering คือ<strong>ความน่าเชื่อถือ</strong> ระบบเฝ้าระวังและตรวจจับภัยคุกคามทางอีเมลมีการอาศัยปัจจัยอ้างอิงและการคำนวณทางสถิติมากมายเพื่อตัดสินว่าอีเมลที่ถูกซึ่งมาจากโดเมนใดโดเมนหนึ่งนั้น<em>น่าจะเป็นอันตราย</em>มากแค่ไหน บางส่วนของปัจจัยที่มักถูกใช้ในการช่วยระบบตัดสินใจนั้นได้แก่</p>
+<ol>
+<li><strong>แหล่งอ้างอิงโดเมน (Reference)</strong> ยิ่งโดเมนนี้มีการปรากฎในอินเตอร์เน็ต และมีกิจกรรมซึ่งเกี่ยวข้องกับโดเมนดังกล่าวตลอดเวลา ความเชื่อถือก็จะยิ่งมากขึ้น</li>
+<li><strong>สถานะการถูก Blacklist ของโดเมนหรือเครือข่ายที่เกี่ยวข้องกับหมายเลขไอพีแอดเดรสของเรา</strong> ถ้าเคยมีประวัติไม่ดีมาก่อน ความน่าเชื่อถือจะยิ่งต่ำ</li>
+<li><strong>อายุของโดเมน</strong> โดเมนซึ่งมีอายุน้อย พึ่งถูกจดใหม่ไม่นาน ก็จะถือว่ามีความน่าเชื่อถือต่ำ</li>
+<li><strong>Top-level domain</strong> ในกลุ่มของ TLD นั้นแน่นอนว่ามีส่วนซึ่งราคาถูก จดทะเบียนได้ง่าย ไม่มีการตรวจสอบมากมายอยู่ หากโดเมนเนมของเราอยู่ในกลุ่มนี้ก็อาจได้รับความน่าเชื่อถือที่ต่ำตามไปด้วย</li>
+<li><strong>เป็นโดเมนเนมในกลุ่มของอีเมลฟรีหรือแบบอีเมลชั่วคราวหรือไม่</strong> ถ้าส่งมาจากบริการแบบ Disposal อีเมลของเราก็จะมีความน่าเชื่อถือที่ต่ำ</li>
+<li><strong>การตั้งค่า SPF/DKIM/DMARC</strong> ถ้ามีการตั้งค่าที่เหมาะสม อุปกรณ์หรือระบบบางประเภทจะถือว่ามีความน่าเชื่อถือสูง</li>
+<li><strong>โปรโตคอลสำหรับรับส่งอีเมล</strong> ยิ่งมีการใช้ TLS และการพิสูจน์ตัวตนที่ถูกต้อง ก็อาจได้ความน่าเชื่อถือที่สูงตาม</li>
+</ol>
+<p>จากรายการด้านบน ประเด็นที่เราจะยกมาพูดถึงกันวันนี้จะเน้นไปที่เรื่องที่ 2 คือการเลือก Infrastructure ที่มีพื้นฐานและความน่าเชื่อถือดีตั้งแต่แรก เพื่อให้ลดความเสี่ยงที่จะถูก Blacklist ทั้ง Subnet ตั้งแต่ยังไม่เริ่มปฏิบัติการครับ</p>
+<h2 id="why-aws">Why AWS?</h2>
+<blockquote>
+<p>หมายเหตุ: AWS ไม่ได้สปอนเซอร์ Blog นี้</p>
+</blockquote>
+<ul>
+<li>ผู้ให้บริการส่วนใหญ่ในไทยไม่ได้คำนึงถึงผลกระทบเท่าไหร่นักกับการถูก Blacklist ชุดหมายเลขไอพีแอดเดรสซึ่งส่งผลให้อีเมลมีโอกาสถูกระบุ Spam/Junk โดยทันที</li>
+<li>ผู้ให้บริการต่างประเทศส่วนใหญ่ขยับไปทำระบบ Vetting เพื่อขออนุญาตส่งอีเมล ดังนั้นความ Responsive ของ Support จึงกลายมาเป็นประเด็นสำคัญ ถ้าถูก Approve ช้าก็อาจกระทบกับปฏิบัติการของเรา</li>
+<li>เฟรมเวิร์คในการทำ Phishing simulation มากมายรองรับการใช้ Amazon SES ซึ่งเหมาะสมกับหากเป้าหมายเป็นองค์กรขนาดใหญ่ และถูกกว่าเมื่อเทียบกับเซอร์วิสอื่น เช่น Sendgrid</li>
+</ul>
+<h2 id="removing-email-restriction-on-ec2">Removing Email Restriction on EC2</h2>
+<p>AWS มีแนวทางในการป้องกันการนำ Infrastructure มาใช้ในการโจมตีมานานแล้ว แต่การปรับเปลี่ยนล่าสุดซึ่งส่งผลต่อการใช้ระบบของ AWS ในปฏิบัติการคือ<a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-port-25-throttle/">การไม่อนุญาตให้ EC2 ใช้งานพอร์ต TCP/25 เป็นค่าเริ่มต้น</a> นอกเสียจากจะมีการขออนุญาตใช้งานก่อน</p>
+<p>ความก้ำกึ่งของประเด็นนี้อยู่ที่ <a href="https://aws.amazon.com/aup/">AWS Acceptable Use Policy</a> มีการระบุไว้อย่างชัดเจนว่าไม่ให้มีการใช้บริการของ AWS ในการกระทำซึ่งผิดกฎหมายที่รวมไปถึงการทำ Phishing ด้วย</p>
+<p>แนวทางในการขออนุญาตเพื่อให้สามารถใช้ EC2 ในการรับ/ส่งอีเมลได้นั้น ผู้ใช้งานจะต้องมีการ<a href="https://console.aws.amazon.com/support/contacts?#/rdns-limits">กรอกฟอร์มขออนุญาต</a>โดยจะต้องอธิบายการใช้งานและ Use case โดยละเอียด ซึ่งสำหรับการทำ Phishing simulation ของเรานั้น ผมมี Best practice ในการขออนุญาตตามรายละเอียดดังนี้ครับ</p>
+<ol>
+<li>ใช้บัญชี AWS ที่ลงทะเบียนโดยอีเมลของบริษัท ให้มีความน่าเชื่อถือและสามารถยืนยันตัวตนได้ มีข้อมูล Billing ชัดเจน</li>
+<li>อธิบาย Use case โดยละเอียดในการใช้ EC2 เพื่อส่งอีเมล โดยจะต้องครอบคลุมประเด็นดังนี้
+<ol>
+<li>จะเอาไปใช้ทำอะไร ในจุดประสงค์อะไร เช่น cybersecurity product/service demonstration, evaluation หรือ assessment</li>
+<li>EC2 จะถูกตั้งค่าอย่างไร ใช้ซอฟต์แวร์ใดในการส่งอีเมล เนื้อหาอีเมลเป็นอย่างไร ส่งหาใครบ้าง จำนวนกี่ฉบับต่อวัน จำนวนรวมเท่าไหร่ ใช้ถึงแค่ไหน</li>
+<li>การตั้งค่า EC2 หรือ Mail server จะมีการตั้งค่าอะไรบ้าง เช่น SPF, DKIM, DMARC หรือการป้องกันการสแปมในรูปแบบอื่นๆ</li>
+<li>ทำการ Allocate หมายเลขไอพีแอดเดรสแบบ Elastic IP เอาไว้ พร้อมจดทะเบียนโดเมนเนมที่จะใช้ส่งอีเมลเพื่อระบุในการตั้งค่าสำหรับ Reverse DNS ด้วย ค่าตรงนี้แนะนำให้ระบุลงในฟอร์มที่เรากรอกเพื่อให้ทาง AWS กำหนดค่าให้เราทันทีให้การขออนุญาตนั้นผ่าน</li>
+</ol>
+</li>
+<li>เราจะมีการดำเนินการอย่างไรเพื่อให้แน่ใจว่าบัญชีของเราจะไม่ถูกเอาไปใช้เพื่อส่งอีเมลขยะ โดยสามารถพูดทั้งในประเด็นของการตั้งค่าบัญชี และการตั้ง Mail server ได้เช่น
+<ol>
+<li>บัญชีถูกดูแลด้านความปลอดภัยอย่างไร แนะนำให้เปิด MFA และพูดถึงในประเด็นนี้พร้อมกับเรื่องความแข็งแกร่งของรหัสผ่านบัญชีด้วย</li>
+<li>จะควบคุมการเข้าถึง EC2 instance อย่างไร เช่น ตั้งค่า Security group ให้เฉพาะเครือข่ายในกลุ่มนี้เข้าถึงได้เท่านั้น</li>
+<li>จะป้องกันอย่างไรไม่ให้ลูกค้าของเราเองไปรีพอร์ตระบบ AWS เช่น อาจพูดถึงการมี NDA และการควบคุมปฏิบัติการ (work closely)</li>
+<li>เน้นในประเด็นของการตั้งด้านความปลอดภัยใน Mail server โดยเฉพาะเรื่อง SPF, DKIM และ DMARC รวมไปถึงการรับส่งอีเมล</li>
+</ol>
+</li>
+</ol>
+<p>กระบวนการ Vetting อาจใช้เวลา 1-2 วัน โดยหากข้อมูลไม่เพียงพอ ทาง AWS จะมีการส่ง Inquiry มาทางอีเมลซึ่งเราใช้เปิดบัญชี AWS เอาไว้เพื่อสอบถามข้อมูลเพิ่มเติม</p>
+<p><img src="https://i.imgur.com/rz8yhfG.png" alt="AWS"></p>
+<p>ในกรณีที่คำอธิบายของเราเพียงพอ ทาง AWS จะส่งอีเมลมาแจ้งว่าได้ปลด Restriction พร้อมทั้งตั้งค่า Reverse DNS ให้แล้วตามตัวอย่างรูปด้านบนครับ</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; SUAM 2022
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/app.js"></script>
+        
+    
+        
+            <script src="/dist/lazyload.js"></script>
+        
+    
+        
+            <script src="/dist/main.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~ekkoLightbox.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+document.body.onload = () => {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+};
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>

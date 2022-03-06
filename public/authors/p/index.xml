@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SUAM</title>
+    <link>https://suam.wtf/authors/p/</link>
+    <description>Recent content on SUAM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suam.wtf/authors/p/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DEFSEC101: MALWARE TRAFFIC ANALYSIS</title>
+      <link>https://suam.wtf/posts/defsec101-malware-traffic-analysis/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/defsec101-malware-traffic-analysis/</guid>
+      <description>Malware traffic analysis คือศาสตร์และแนวทางเกี่ยวกับการทำความเข้าใจพฤติกรรมของมัลแวร์และภัยคุกคาม เพื่อให้ผู้ตรวจสอบ รับมือและตอบสนองภัยคุกคามได้รับข้อมูลที่จำเป็นต่อการประเมินผลกระทบ และจัดการเหตุการณ์ด้านความปลอดภัยอย่างมีประสิทธิภาพสูงสุด
+ใน Defensive Security 101 (DEFSEC101) &amp;ldquo;Malware traffic analysis&amp;rdquo; เราจะมาพูดถึงประเด็นที่เกี่ยวข้องกับการเก็บ วิเคราะห์และทำความเข้าใจพฤติกรรมการใช้งานเครือข่ายของมัลแวร์
+ การเก็บข้อมูลการใช้งานเครือข่าย ทั้งในสภาพแวดล้อมทั่วไปและสภาพแวดล้อมที่ถูกสร้างขึ้นมาเฉพาะเพื่อการวิเคราะห์มัลแวร์ (Malware analysis environment) วิเคราะห์พฤติกรรมการใช้งานเครือข่ายของมัลแวร์เพื่อหาข้อมูลของสถานการณ์ และใช้ข้อมูลในการทำ Incident response  จากกิจกรรมซึ่งเราได้มีการจัดไป รายการด้านล่างคือเอกสารและแหล่งข้อมูลเพิ่มเติมจากกิจกรรมครับ
+ วีดิโอบันทึกการจัดกิจกรรม สไลด์นำเสนอที่ใช้ในการจัดกิจกรรม หน้าสำหรับดาวโหลด Traffic Analysis Exercises จาก Malware-traffic-analysis.net   พาสเวิร์ดสำหรับแตกไฟล์คือ: infected
+ บล็อกสรุปจากงาน Black Hat USA 2019 ว่าด้วยเรื่องแนวคิดการทำ Command &amp;amp; Control บล็อกแนะนำโน้ตการสังเกตลักษณะและแพทเทิร์นของทราฟิก Command &amp;amp; Control  หากมีคำถามใด ๆ เกี่ยวกับกิจกรรม สามารถสอบถามได้ที่เพจ Cybersec Career Kickstart ได้เลยครับ</description>
+    </item>
+    
+    <item>
+      <title>Red Team Engagement: การขอ AWS ทำ Phishing Simulation และการทำ Infra ให้น่าเชื่อถือ</title>
+      <link>https://suam.wtf/posts/aws-removing-email-sending-limit-for-phishing-simulation/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/aws-removing-email-sending-limit-for-phishing-simulation/</guid>
+      <description>การทำ Phishing simulation นั้นเป็นกิจกรรมซึ่งมีลักษณะคล้ายกับการปรุงอาหาร สูตรอาหารหนึ่งสูตรสามารถปรุงได้หลายวิธีการและสร้างความอร่อยได้ในหลากหลายรูปแบบ การทำ Phishing simulation ก็มีปัจจัยซึ่งถูกแอบซ่อนไว้อยู่หลายปัจจัยที่จะช่วยการันตีในความสำเร็จของปฏิบัติการโดยอาศัยการพึ่งพาผู้ใช้บริการให้น้อยที่สุด มีปฏิบัติการที่เสมือนจริงที่สุดตามลักษณะภัยคุกคามที่เป็นไปได้ที่ผู้ใช้บริการของเราจะเผชิญ และคงไว้ซึ่งความลับของปฏิบัติการให้มากที่สุด
+ปัจจัยที่มักได้รับความสนใจและความทุ่มเทเป็นอย่างสูงโดยเหล่า Red team มักจะล้อมอยู่ในประเด็นของการข้ามผ่านการตรวจจับและเฝ้าระวัง ซึ่งเราได้มีการพูดถึงไปบางส่วนแล้วในโพสต์ Red Team Engagement ที่ผ่านมา
+ ดูเทคนิคการทำ Phishing technique ให้แนบเนียนได้ที่โพสต์ Red Team Engagement: Phishing Techniques
+ อย่างไรก็ตามอีกหนึ่งปัจจัยที่มักถูกลืมหรือไม่ได้รับความสนใจมากเท่าไหร่นั้นคือชัยภูมิในการปฏิบัติการ หรือ Infrastructure ที่เราจะใช้ในการจำลองพฤติกรรมของภัยคุกคาม ซึ่งวันนี้เราจะมาพูดถึงทั้งในประเด็นของการเลือกและพัฒนาชัยภูมิให้เหมาะสม รวมไปถึงประเด็นในการใช้บริการของ AWS เป็นชัยภูมิในการจำลองการโจมตีครับ
+Battle of Reputation เมื่อพูดถึงประเด็นในเรื่องของ Infrastructure สำหรับการทำ Phishing simulation นั้น คำสำคัญซึ่งมีผลต่อความสำเร็จและความแนบเนียนของปฏิบัติการก็ยังคงเป็นคำเดิมๆ ตามตำรา Social engineering คือความน่าเชื่อถือ ระบบเฝ้าระวังและตรวจจับภัยคุกคามทางอีเมลมีการอาศัยปัจจัยอ้างอิงและการคำนวณทางสถิติมากมายเพื่อตัดสินว่าอีเมลที่ถูกซึ่งมาจากโดเมนใดโดเมนหนึ่งนั้นน่าจะเป็นอันตรายมากแค่ไหน บางส่วนของปัจจัยที่มักถูกใช้ในการช่วยระบบตัดสินใจนั้นได้แก่
+ แหล่งอ้างอิงโดเมน (Reference) ยิ่งโดเมนนี้มีการปรากฎในอินเตอร์เน็ต และมีกิจกรรมซึ่งเกี่ยวข้องกับโดเมนดังกล่าวตลอดเวลา ความเชื่อถือก็จะยิ่งมากขึ้น สถานะการถูก Blacklist ของโดเมนหรือเครือข่ายที่เกี่ยวข้องกับหมายเลขไอพีแอดเดรสของเรา ถ้าเคยมีประวัติไม่ดีมาก่อน ความน่าเชื่อถือจะยิ่งต่ำ อายุของโดเมน โดเมนซึ่งมีอายุน้อย พึ่งถูกจดใหม่ไม่นาน ก็จะถือว่ามีความน่าเชื่อถือต่ำ Top-level domain ในกลุ่มของ TLD นั้นแน่นอนว่ามีส่วนซึ่งราคาถูก จดทะเบียนได้ง่าย ไม่มีการตรวจสอบมากมายอยู่ หากโดเมนเนมของเราอยู่ในกลุ่มนี้ก็อาจได้รับความน่าเชื่อถือที่ต่ำตามไปด้วย เป็นโดเมนเนมในกลุ่มของอีเมลฟรีหรือแบบอีเมลชั่วคราวหรือไม่ ถ้าส่งมาจากบริการแบบ Disposal อีเมลของเราก็จะมีความน่าเชื่อถือที่ต่ำ การตั้งค่า SPF/DKIM/DMARC ถ้ามีการตั้งค่าที่เหมาะสม อุปกรณ์หรือระบบบางประเภทจะถือว่ามีความน่าเชื่อถือสูง โปรโตคอลสำหรับรับส่งอีเมล ยิ่งมีการใช้ TLS และการพิสูจน์ตัวตนที่ถูกต้อง ก็อาจได้ความน่าเชื่อถือที่สูงตาม  จากรายการด้านบน ประเด็นที่เราจะยกมาพูดถึงกันวันนี้จะเน้นไปที่เรื่องที่ 2 คือการเลือก Infrastructure ที่มีพื้นฐานและความน่าเชื่อถือดีตั้งแต่แรก เพื่อให้ลดความเสี่ยงที่จะถูก Blacklist ทั้ง Subnet ตั้งแต่ยังไม่เริ่มปฏิบัติการครับ</description>
+    </item>
+    
+    <item>
+      <title>Red Team Engagement: Phishing Techniques</title>
+      <link>https://suam.wtf/posts/red-team-engagement-phishing-techniques/</link>
+      <pubDate>Mon, 06 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/red-team-engagement-phishing-techniques/</guid>
+      <description>โพสต์นี้เป็นอีกโพสต์หนึ่งซึ่งผมจะใช้มันเป็นโน้ตสั้น ๆ สำหรับทดสิ่งที่ได้รู้มาเผื่อซักวันนึงเราจะได้ใช้มันและก็หวังว่าคนอื่นจะได้รับประโยชน์เช่นกัน สำหรับเนื้อหาที่เราจะเลือกทดกันในวันนี้มาจาก SANS@MIC Webcast ในหัวข้อ Catch and release: phishing techniques for the good guys โดย Jan Kopřiva ครับ
+ ดาวโหลดสไลด์ประกอบการบรรยายหรือดู Webcast เต็มย้อนหลังได้ที่ SANS Webcast
+  คีย์เวิร์ดสำคัญในการทำ content ของ phishing operation ให้มีโอกาสสำเร็จสูงคือการเล่นกับคนผ่านปัจจัยซึ่งทำให้การวิเคราะห์และตัดสินใจด้วยเหตุและผลถูกบั่นทอนลง ปัจจัยเหล่านั้นมีได้หลากหลาย แต่ในการบรรยายนี้จะเน้นไปที่ปัจจัยอยู่ 3 ลักษณะคือ Known, Trustoworthy และ Urgent ทั้ง 3 ปัจจัยนี้หากใช้อย่างถูกต้องก็จะสามารถช่วยเพิ่มอัตราความสำเร็จได้เป็นอย่างดี ขั้นตอนการ Recon ยังคงเป็นขั้นตอนที่สำคัญเพื่อให้รู้ Defensive mechanism ที่เป้าหมายมี อาทิ ผู้ให้บริการอีเมลของเป้าหมายน่าจะมีความสามารถในการตรวจจับและป้องกันอีเมลปลอมได้ดีแค่ไหน หรือในฝั่งของเป้าหมายเองมีการตั้งค่า SPF/DKIM/DMARC ไว้อย่างไรเพื่อป้องการโจมตีในลักษณะนี้ เทคโนโลยีอย่าง SPF/DKIM/DMARC เป็นเทคโนโลยีซึ่งบางครั้งการเอามาใช้ให้ถูกต้องก็เป็นเรื่องที่ยาก ดังนั้นการนำผลลัพธ์จากการ Recon มาดูอาจช่วยให้เราพบอะไรที่น่าสนใจ และนำไปสู่การ bypass การป้องกันได้ ตัวอย่าง #56742 SPF whitelist of mandrill leads to email forgery เทคนิคการเล่นกับชื่อผู้ส่ง  ปลอมทั้งหมดผ่าน SMTP server ของเราเองแต่อาจเจอปัญหาในการตรวจสอบย้อนกลับ หรือปัญหาเกี่ยวกับ reputation ของ SMTP server ใช้ทริคปลอมอีเมลแอดเดรส เช่น ระบุ Sender address ให้มี First Last &amp;lt;fake@emai-address.</description>
+    </item>
+    
+    <item>
+      <title>Create a Blog Post with Hugo</title>
+      <link>https://suam.wtf/posts/create-a-blog-post-with-hugo/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/create-a-blog-post-with-hugo/</guid>
+      <description>In this post, I will present you a short introduction on how to create a blog post, from the the installation of Hugo to publishing your article.
+SUAM Project For the SUAM project, there are two main repositories responsible for content publishing, suam-team/raw for static content and Hugo config, and suam-team/blog which contains public/ directory for HTML. We have deploy.sh for executing and pushing content from a markdown file to a HTML file.</description>
+    </item>
+    
+  </channel>
+</rss>
