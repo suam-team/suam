@@ -52,5 +52,14 @@
       <description>OSCP, PCIP, CEH, Project+</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://suam.wtf/authors/vanitas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/authors/vanitas/</guid>
+      <description>Offensive Researcher, Red Teaming Enthusiast.</description>
+    </item>
+    
   </channel>
 </rss>
