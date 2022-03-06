@@ -13,7 +13,7 @@ description: "แนะนำคอร์สและเนื้อหาขอ
 
 ## 0x01 - What is OSEP?
 
-![](../../../uploads/a19ddbe22afc139c538bfca41cea40ad.png)
+![](../../../images/uploads/a19ddbe22afc139c538bfca41cea40ad.png)
 
 OSEP เป็น course ตระกูล 30x หรือ expert level ของค่าย Offensive Security ซึ่งการได้ certificate ตัวนี้มาจะต้องผ่านการเรียน course PEN-300: Evasion Techniques and Breaching Defenses และผ่านการเข้าสอบในลักษณะ hands-on examination ได้ตามเกณฑ์ที่ทาง Offensive Security เจ้าของค่ายกำหนด โดยทางเจ้าของค่ายเองไม่ได้กำหนดเป็น pre-requisite ว่าเราต้องผ่าน OSCP (PEN-200) ก่อนแต่อย่างใด แต่ในมุมของผมเองแล้ว **หลายๆ อย่างใน course นี้ “จำเป็นต้องใช้” หลายๆ methodology จาก OSCP เลยคิดว่าถ้าผ่านมาก่อนจะเป็นอะไรที่ดีมากครับ**
 
@@ -82,7 +82,7 @@ OSEP เป็น course ตระกูล 30x หรือ expert level ขอ
 
 ในแต่ละเครื่อง ก็จะมี flag อยู่ 2 ประเภทให้เรา submit ลงใน portal โดย local.txt จะได้มาในกรณีที่เราสามารถ compromise ในระดับสิทธิ์ต่ำ (low privilege account) ในแต่ละเครื่องได้แล้ว และ proof.txt จะได้มาในกรณีที่เราได้สิทธิ์สูงสุด (root หรือ administrative privilege) ในแต่ละเครื่อง ซึ่งต้องบอกว่าในแต่ละ challenge ก็มีจำนวน flag มากน้อยไม่เท่ากัน ขึ้นอยู่กับจำนวนเครื่องใน challenge นั้นๆ ด้วย
 
-![](../../../uploads/a736b38b8113444add273494b38e6b01.png)
+![](../../../images/uploads/a736b38b8113444add273494b38e6b01.png)
 
 
 ในส่วนของ Challenge รวมๆแล้วถือว่าใช้เวลาไม่เยอะ ถ้าเทียบกับ course และ exercise ที่ต้องทำทั้ง 15 บทที่กล่าวมาจาก section ที่แล้ว โดยรวมในความเห็นของผมเองจึงคิดว่าแอบน่าเสียดายเล็กๆ ที่มันน้อยไปหน่อยครับ ถ้ามีสัก 10 challenge หรือ เพิ่มความ complex ใน 5 challenge แรก น่าจะทำให้ผู้เรียนสนุกและได้ idea เพิ่มขึ้นมากกว่านี้
@@ -91,7 +91,7 @@ OSEP เป็น course ตระกูล 30x หรือ expert level ขอ
 
 ด้วยความที่ทุกคนที่เข้ามาอ่าน น่าจะทราบกันอยู่แล้วว่า Offensive Security เป็นค่ายที่เน้นการทดสอบผู้เรียนแบบ hands-on เป็นหลัก ก็คือลงมือ hack กันโต้งๆตาม objective ที่ได้รับมาแบบไม่ต้องคิดเยอะ ดังนั้นแน่นอนว่าสิ่งที่สำคัญสำหรับการสอบ คือ **“ความอดทน ความมุ่งมั่น สมาธิ และความไม่ยอมแพ้”** (โคตรโชเน็นเลย -_-“ แต่เรื่องจริงนะครับ)
 
-![](../../../uploads/b519e60a3d01a02740e3df8e10ec51f9.png)
+![](../../../images/uploads/b519e60a3d01a02740e3df8e10ec51f9.png)
 
 *Gotta Pwn Them All !?*
 
@@ -114,7 +114,7 @@ Scenario ในการสอบ เราจะได้ ip ของ network 
 
 หลังจาก VPN ตัดไปแล้ว นอกเหนือจากที่เราจะต้องได้ point หรือ secret ตาม objective เรายังจะต้องทำ report เพื่อ submit ผ่าน report site ของ Offensive Security ไปให้เค้าเพื่อทำการ grading ภายใน 24 hrs หลังจาก VPN ได้ถูกตัดไปแล้วด้วยเช่นกัน
 
-![](../../../uploads/155fa896e4ef01799574addb887af07e.png)
+![](../../../images/uploads/155fa896e4ef01799574addb887af07e.png)
 
 *ความรู้สึกตอนทำ report T_T*
 
@@ -122,7 +122,7 @@ Scenario ในการสอบ เราจะได้ ip ของ network 
 
 ซึ่งถ้าผ่าน ก็จะได้ badge ประมาณนี้ ท๊าดา~~~
 
-![](../../../uploads/f4316ef91a7953f0128f38b55f61a092.png)
+![](../../../images/uploads/f4316ef91a7953f0128f38b55f61a092.png)
 
 ## 0x06 - Conclusion
 
