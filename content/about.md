@@ -15,3 +15,4 @@ blog อยากเขียนไรก็เขียนของคน cool 
 - [eegeeg](/authors/eegeeg)
 - [Ruthlezs](/authors/ruthlezs)
 - [Jusmistic](/authors/jusmistic)
+- [Vanitas](/authors/vanitas)

