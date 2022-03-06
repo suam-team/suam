@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     React Native Application Static Analysis [English] | 
+    SUAM
+  
+</title><meta name="description" content="The reverse engineer of react native application"><meta name="author" content="bongtrop">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/favicon-32x32.png " sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c344b">
+<link rel="icon" href="/favicon.ico">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173363806-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173363806-1');
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="/dist/main.min.css"><link rel="canonical" href="https://suam.wtf/posts/react-native-application-static-analysis-en/"><meta property="og:title" content="React Native Application Static Analysis [English]" />
+<meta property="og:description" content="The reverse engineer of react native application" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suam.wtf/posts/react-native-application-static-analysis-en/" /><meta property="og:image" content="https://i.imgur.com/cCqu6la.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-01-20T00:00:00+00:00" />
+
+<meta itemprop="name" content="React Native Application Static Analysis [English]">
+<meta itemprop="description" content="The reverse engineer of react native application"><meta itemprop="datePublished" content="2021-01-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-01-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1797"><meta itemprop="image" content="https://i.imgur.com/cCqu6la.png">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.imgur.com/cCqu6la.png"/>
+
+<meta name="twitter:title" content="React Native Application Static Analysis [English]"/>
+<meta name="twitter:description" content="The reverse engineer of react native application"/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://suam.wtf/">SUAM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                
+            
+                <li class="nav-item">
+                    <a href="https://webring.wonderful.software#suam.wtf" title="วงแหวนเว็บ" target="_blank" class="nav-link" rel="noopener">
+                        <img src="/images/webring.black.svg" width="25px" height="25px" alt="วงแหวนเว็บ" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">January 20, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1797 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>9 mins read</span>
+                        </div>
+
+                        <h1>React Native Application Static Analysis [English]</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/bongtrop/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg 1x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_128x0_resize_q100_box.jpg 2x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg" class="rounded-circle" alt="bongtrop">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/bongtrop/" class="small">bongtrop</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@bongtrop">@bongtrop</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p><img src="https://i.imgur.com/cCqu6la.png" alt="banner"></p>
+<blockquote>
+<p>สำหรับเวอร์ชันภาษาไทย อ่านได้ที่ <a href="https://suam.wtf/posts/react-native-application-static-analysis-th/">https://suam.wtf/posts/react-native-application-static-analysis-th/</a></p>
+</blockquote>
+<p>In the previous year (2020), I performed penetration testing on many mobile applications, and many of them are implemented with cross-platform frameworks e.g., <a href="https://dotnet.microsoft.com/apps/xamarin">Xamarin</a>, <a href="https://reactnative.dev/">React Native</a>, or <a href="https://flutter.dev/">Flutter</a>. I think in the upcoming years, an increasing amount of mobile applications will be developed with these frameworks.</p>
+<p>For each framework, different reverse engineering and static analysis methods are used. Moreover, for the newer frameworks, reverse engineering materials and tools are lacking. As a result, it is very hard to perform static analysis and patch these applications if you don&rsquo;t understand the internals of these frameworks.</p>
+<p>React Native application was one of the most common types found, and they had been the easiest to perform reverse engineering. However, Facebook has implemented their own JavaScript Engine named <a href="https://hermesengine.dev/">Hermes</a>. Some React Native applications have already migrated to the Hermes engine. Additionally, the Hermes engine has also been bundled in many React Native starter kits, so enabling it is very easy.</p>
+<p>Without the Hermes engine, the React Native JavaScript source code is just minified before being stored in the application. Thus, to do reverse engineering, only beautifying is needed before reading or patching it. But with the Hermes engine, JavaScript source code is compiled to the Hermes bytecode before being stored in the application.</p>
+<p>Hermes is a new custom JavaScript engine. Therefore, the only way to understand and know how to patch it is by reading the <a href="https://github.com/facebook/hermes">Hermes engine source code</a> from Github. This is not very different from the AOT snapshot of Flutter, or .NET DLL bundled in the native lib of Xamarin. When I found them in pentest projects, they always made me frustrated.</p>
+<h2 id="react-native-without-hermes-engine">React Native without Hermes engine</h2>
+<p>If you used to perform reverse engineering on the mobile application, you must know that it is very easy. It is hardly different from web hacking. In the following examples, the Android application will be used because it is easier to create and set up labs. Besides, for React Native, Android and iOS are hardly different.</p>
+<blockquote>
+<p>You can follow this tutorial using this application (<a href="https://github.com/bongtrop/react-native-reversing-lab/releases/download/v1.0/ReactNativeReverseingLab.apk">ReactNativeReverseingLab.apk</a>).</p>
+</blockquote>
+<p>After installing and launching the application, tap on the + button twice. The <code>Increase button has already been broken.</code> message will be shown and you will not be able to increase the <code>counter</code> anymore.</p>
+<p><img src="https://i.imgur.com/ZDIRFSjl.png" alt="React Native 1"></p>
+<p>The goal of this lab is to increase the counter to 10. Therefore, application patching. It is very simple as follows:</p>
+<p><strong>(1)</strong>  Unzip the APK file (you can also use <code>apktool</code> in this step).</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ unzip ReactNativeReversingLab.apk -d ReactNativeReversingLab
+Archive:  ReactNativeReverseingLab.apk
+  inflating: ReactNativeReverseingLab/AndroidManifest.xml
+  inflating: ReactNativeReverseingLab/META-INF/CERT.RSA
+  inflating: ReactNativeReverseingLab/META-INF/CERT.SF
+  inflating: ReactNativeReverseingLab/META-INF/MANIFEST.MF
+[...]
+</code></pre>
+<p><strong>(2)</strong> Navigate to <code>ReactNativeReversingLab/asserts</code>. The <code>index.android.bundle</code> will be found.</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ cd ReactNativeReverseingLab/assets
+(hack) bongtrop@bongtrop-pc:assets/ $ ls -al
+total 676
+drwxrwxr-x 2 bongtrop bongtrop   4096 Jan 12 19:04 .
+drwxrwxr-x 7 bongtrop bongtrop   4096 Jan 12 19:04 ..
+-rw-rw-r-- 1 bongtrop bongtrop 680631 Dec 31  1979 index.android.bundle
+(hack) bongtrop@bongtrop-pc:assets/ $ cat index.android.bundle
+var __BUNDLE_START_TIME__=this.nativePerformanceNow?na[...]
+</code></pre>
+<p><strong>(3)</strong>  The JavaScript source code in <code>index.android.bundle</code> file is minified. You can beautify it by using the <code>js-beautify</code> tool. It can be installed by executing <code>npm install -g js-beautify</code> command.</p>
+<pre><code>bongtrop@bongtrop-pc:assets/ $ js-beautify -r index.android.bundle 
+beautified index.android.bundle
+</code></pre>
+<p><strong>(4)</strong> After beautifying the JavaScript source code, search <code>Increase button has already been broken</code> text (line 29156). Then, change the <code>2 != t.state.counter</code> condition to <code>1</code>.</p>
+<p>From:</p>
+<pre><code class="language-js">2 != t.state.counter ? (t.setState({
+    counter: t.state.counter + 1
+}), 9 == t.state.counter &amp;&amp; alert(&quot;You win !!&quot;)) : alert(&quot;Increase button has already been broken.&quot;)
+</code></pre>
+<p>To:</p>
+<pre><code class="language-js">1 ? (t.setState({
+    counter: t.state.counter + 1
+}), 9 == t.state.counter &amp;&amp; alert(&quot;You win !!&quot;)) : alert(&quot;Increase button has already been broken.&quot;)
+</code></pre>
+<p><strong>(5)</strong> Save <code>index.android.bundle</code>. Next, navigate to the parent directory and remove all old signatures in the <code>META-INF</code> directory.</p>
+<pre><code>bongtrop@bongtrop-pc:assets/ $ cd ..
+bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ rm META-INF/CERT.RSA
+bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ rm META-INF/CERT.SF
+bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ rm META-INF/MANIFEST.MF
+</code></pre>
+<p><strong>(6)</strong> Zip all files into an APK.</p>
+<pre><code>bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ zip -r ReactNativeReverseingLab.patch.apk *
+  adding: AndroidManifest.xml (deflated 66%)
+  adding: assets/ (stored 0%)
+  adding: assets/index.android.bundle (deflated 81%)
+[...]
+bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ mv ReactNativeReverseingLab.patch.apk ..
+bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ cd ..
+</code></pre>
+<p><strong>(7)</strong> Sign the APK.</p>
+<p>If you don&rsquo;t have a key, generate it with the following command.</p>
+<pre><code>keytool -genkey -v -keystore helloworld.keystore -alias helloworld -keyalg RSA -keysize 2048 -validity 10000
+</code></pre>
+<p>Then, sign the APK with <code>apksigner</code> or <code>jarsigner</code>.</p>
+<pre><code>bongtrop@bongtrop-pc:ReactNativeReverseingLab/ $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore helloworld.keystore ReactNativeReverseingLab.patch.apk helloworld
+Enter Passphrase for keystore:
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/HELLOWOR.SF
+   adding: META-INF/HELLOWOR.RSA
+[...]
+</code></pre>
+<p><strong>(8)</strong> Finally, install the new APK and tap on + button. The <code>You win!!</code> alert will be pop up as shown below.</p>
+<p><img src="https://i.imgur.com/9XQCpKnl.png" alt="React Native 2"></p>
+<p>In a nutshell, without Hermes, you can beautify the JavaScript source code then easily analyze and patch it. As a result, I really love to do reverse engineering on React Native without Hermes. We can also inject a JavaScript debugging tool into the application and debug it with the browser&rsquo;s dev tools.</p>
+<h2 id="react-native-with-hermes">React Native with Hermes</h2>
+<p>We are finally reaching the main point. To enable the Hermes engine for React Native application, you can easily edit the <code>android/app/build.gradle</code> file to change <code>enableHermes: false</code> to <code>enableHermes: true</code>.</p>
+<blockquote>
+<p>For more information, please visit: <a href="https://reactnative.dev/docs/hermes">https://reactnative.dev/docs/hermes</a></p>
+</blockquote>
+<p>After building the application, the <code>index.android.bundle</code> in Hermes bytecode format will be created. In Ubuntu 20.04, the <code>file</code> command can identify this format.</p>
+<pre><code>$ file index.android.bundle
+index.android.bundle: Hermes JavaScript bytecode, version 74
+</code></pre>
+<p>If you want to perform the reverse engineering on the Hermes bytecode by yourself, you can test in our lab (<a href="https://lab.suam.wtf/lab/suam-team/hermes-reversing-lab">Hermes Reversing Lab</a>).</p>
+<p>By investigating the <code>index.android.bundle</code> file, you will discover that it cannot be read. If it is .NET or Java bytecodes, you can use the decompiler tool from the internet to decompile it. But, for a new engine like Hermes, there is no hope.</p>
+<p>A built-in tool like <code>hbcdump</code> can help you analyze the application. You can download it from <a href="https://github.com/facebook/hermes/releases">Hermes Github repo</a>. Please note that you must use the correct version of Hermes bytecode to disassemble the application. The version of Hermes bytecode can be found in <code>/include/hermes/BCGen/HBC/BytecodeFileFormat.h</code> file around line 33. For the <a href="https://lab.suam.wtf/lab/suam-team/hermes-reversing-lab">Hermes Reversing Lab</a>, it was built with Hermes bytecode version 74. Please use <code>hbcdump</code> from <a href="https://github.com/facebook/hermes/releases/tag/v0.6.0">Hermes Release v0.6.0</a>. After downloading, execute it as follows:</p>
+<pre><code>$ ./hbcdump -objdump-disassemble index.android.bundle
+hbcdump&gt; dis
+
+d0310a88a868dfb1ee21d12e9011725b1f716875:     file format HBC-74
+
+Disassembly of section .text:
+
+000000000002ca48 &lt;_0&gt;:
+0002ca48:       30 44 08 00 00        DeclareGlobalVar        $0x000844
+0002ca4d:       30 48 08 00 00        DeclareGlobalVar        $0x000848
+[...]
+hbcdump&gt; quit
+</code></pre>
+<p>Then, if you want to patch it, use your favorite hex editor tool to modify the <code>index.android.bundle</code> file directly.</p>
+<p><img src="https://i.imgur.com/7pWByDtl.png" alt="React Native 3"></p>
+<p>It can be seen that it is still hard even when the Hermes team provides the <code>hbcdump</code> for us. The <code>hbcdump</code> doesn&rsquo;t show all the important information in the assembly. And to patch the application, editing raw bytes with a hex editor is still required.</p>
+<p>Therefore, I created a tool named <a href="https://github.com/bongtrop/hbctool">hbctool</a> to help analyze and patch Hermes bytecode from React Native application. To install it, execute the following command.</p>
+<pre><code>pip install hbctool
+</code></pre>
+<p>Let&rsquo;s do it together. After downloading and installing the lab&rsquo;s APK from <a href="https://lab.suam.wtf/lab/suam-team/hermes-reversing-lab">Hermes Reversing Lab</a>, open it and tap the + button 10 times. The <code>Increase button has already been broken.</code> message will be shown and <code>counter</code> will not increase anymore.</p>
+<p><img src="https://i.imgur.com/ZDIRFSjl.png" alt="React Native 1"></p>
+<p>To get a flag, we have to increase the counter to 1337. Thus, the Hermes bytecode must be patched to bypass the condition checking, or you can also perform reverse engineering on the encrypt function and reconstruct the decrypt function in order to get the flag. In the following steps, I will only show you the Hermes bytecode patching method.</p>
+<p><strong>(1)</strong> Unzip the APK file (you can also use <code>apktool</code> in this step).</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ unzip HermesReversingLab.apk -d HermesReversingLab
+Archive:  HermesReversingLab.apk
+  inflating: HermesReversingLab/AndroidManifest.xml
+  inflating: HermesReversingLab/META-INF/CERT.RSA
+  inflating: HermesReversingLab/META-INF/CERT.SF
+  inflating: HermesReversingLab/META-INF/MANIFEST.MF
+[...]
+</code></pre>
+<p><strong>(2)</strong> Disassemble Hermes bytecode from <code>index.android.bundle</code> file by using <code>hbctool</code>.</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ hbctool disasm HermesReversingLab/assets/index.android.bundle HermesReversingLabHASM
+[*] Disassemble 'HermesReversingLab/assets/index.android.bundle' to 'HermesReversingLabHASM' path
+[*] Hermes Bytecode [ Source Hash: d0310a88a868dfb1ee21d12e9011725b1f716875, HBC Version: 74 ]
+[*] Done
+</code></pre>
+<p><strong>(3)</strong> After disassembling HBC (Hermes Bytecode) to HASM (I named it; stands for Hermes Assembly). In the <code>HermesReversingLabHASM</code> directory, there are 3 files as follows:</p>
+<ul>
+<li><code>metadata.json</code>: stores the important information of Hermes bytecode file</li>
+<li><code>instruction.hasm</code>: stores the application instructions or logics in HASM format (edit application logics in this file)</li>
+<li><code>string.json</code>: store the application strings or texts (edit strings in this file)</li>
+</ul>
+<p><strong>(4)</strong> Edit the application&rsquo;s instruction in <code>HermesReversingLabHASM/instruction.hasm</code>. You can change the goal counter from 1336 to 1, or you can just change the opcode from <code>JNotGreaterEqual</code> to another <code>jmp</code> opcode. For this example, I would change the goal counter from 1336 to 1 by changing the number 1336 on line 182890 to 1.</p>
+<p>From:</p>
+<pre><code>[...]
+    LoadConstInt            Reg8:1, Imm32:1336
+    JNotGreaterEqual        Addr8:43, Reg8:2, Reg8:1
+[...]
+</code></pre>
+<p>To:</p>
+<pre><code>[...]
+    LoadConstInt            Reg8:1, Imm32:1
+    JNotGreaterEqual        Addr8:43, Reg8:2, Reg8:1
+[...]
+</code></pre>
+<p><strong>(5)</strong> Save the file and assemble HASM to the HBC by using <code>hbctool</code>.</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ hbctool asm HermesReversingLabHASM HermesReversingLab/assets/index.android.bundle 
+[*] Assemble 'HermesReversingLabHASM' to 'HermesReversingLab/assets/index.android.bundle' path
+[*] Hermes Bytecode [ Source Hash: d0310a88a868dfb1ee21d12e9011725b1f716875, HBC Version: 74 ]
+[*] Done
+</code></pre>
+<p><strong>(6)</strong> Remove all signature files from <code>META-INF</code> directory and zip them to APK.</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ cd HermesReversingLab         
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ rm META-INF/CERT.RSA
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ rm META-INF/CERT.SF       
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ rm META-INF/MANIFEST.MF
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ zip -r HermesReversingLab.patch.apk *
+  adding: AndroidManifest.xml (deflated 66%)              
+  adding: assets/ (stored 0%)                           
+  adding: assets/index.android.bundle (deflated 48%)
+[...]
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ mv HermesReversingLab.patch.apk ..
+(hack) bongtrop@bongtrop-pc:HermesReversingLab/ $ cd ..
+</code></pre>
+<p><strong>(7)</strong> Sign the APK file by using <code>jarsigner</code> or <code>apksigner</code>.</p>
+<pre><code>(hack) bongtrop@bongtrop-pc:lab/ $ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore helloworld.keystore HermesReversingLab.patch.apk helloworld
+Enter Passphrase for keystore:                                                
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/HELLOWOR.SF
+   adding: META-INF/HELLOWOR.RSA
+[...]
+</code></pre>
+<p><strong>(8)</strong> Finally, after installing and opening the patched app, tap the + button twice. The flag will be shown. Please note that the example in the following gif file uses the <a href="https://github.com/aktsk/apkutil">apkutil</a> to bundle and unbundle the APK file.</p>
+<p><img src="https://i.imgur.com/70MBQ2c.gif" alt="hbctool example"></p>
+<p>For a higher quality video, see this <a href="https://github.com/bongtrop/hbctool/raw/main/image/hbctool_example.mp4">MP4</a>.</p>
+<blockquote>
+<p>I created this lab for anyone that wants to try reverse-engineering the Hermes bytecode application. If you get a flag, you can submit it at <a href="https://lab.suam.wtf/lab/suam-team/hermes-reversing-lab">lab.suam.wtf</a>.</p>
+</blockquote>
+<h2 id="summary">Summary</h2>
+<p>I wrote this blog because I want more people to be interested in doing an in-depth analysis of the mobile application framework. Researching the internals of any framework takes a huge time. I cannot research all frameworks by myself. Please research them and share your knowledge with the community, to help a poor pentester like me.</p>
+<p>However, I hope that my tool can help pentester with bad times on mobile application pentest. The days are getting worse.</p>
+<p>From the technical point of view, the Hermes engine is very
+interesting. There is no disadvantage to enabling it (except making it hard to perform reverse engineering), and it makes the application run faster. In the future, I think if the Hermes engine is stable, the React Native applications will be forced to migrate to it. Moreover, in my opinion, AOT for React Native is coming soon.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; SUAM 2022
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/app.js"></script>
+        
+    
+        
+            <script src="/dist/lazyload.js"></script>
+        
+    
+        
+            <script src="/dist/main.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~ekkoLightbox.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+document.body.onload = () => {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+};
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>

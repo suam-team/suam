@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     Virtual Private Network (VPN) Myths | 
+    SUAM
+  
+</title><meta name="description" content="ความเข้าใจแปลก ๆ เกี่ยวกับ Virtual Private Network (VPN)"><meta name="author" content="bongtrop">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/favicon-32x32.png " sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c344b">
+<link rel="icon" href="/favicon.ico">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173363806-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173363806-1');
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="/dist/main.min.css"><link rel="canonical" href="https://suam.wtf/posts/vpn-myth/"><meta property="og:title" content="Virtual Private Network (VPN) Myths" />
+<meta property="og:description" content="ความเข้าใจแปลก ๆ เกี่ยวกับ Virtual Private Network (VPN)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suam.wtf/posts/vpn-myth/" /><meta property="og:image" content="https://i.imgur.com/dbpqE68.png?1" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-03-24T00:00:00+00:00" />
+
+<meta itemprop="name" content="Virtual Private Network (VPN) Myths">
+<meta itemprop="description" content="ความเข้าใจแปลก ๆ เกี่ยวกับ Virtual Private Network (VPN)"><meta itemprop="datePublished" content="2021-03-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-03-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1458"><meta itemprop="image" content="https://i.imgur.com/dbpqE68.png?1">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.imgur.com/dbpqE68.png?1"/>
+
+<meta name="twitter:title" content="Virtual Private Network (VPN) Myths"/>
+<meta name="twitter:description" content="ความเข้าใจแปลก ๆ เกี่ยวกับ Virtual Private Network (VPN)"/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://suam.wtf/">SUAM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                
+            
+                <li class="nav-item">
+                    <a href="https://webring.wonderful.software#suam.wtf" title="วงแหวนเว็บ" target="_blank" class="nav-link" rel="noopener">
+                        <img src="/images/webring.black.svg" width="25px" height="25px" alt="วงแหวนเว็บ" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">March 24, 2021</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>1458 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>7 mins read</span>
+                        </div>
+
+                        <h1>Virtual Private Network (VPN) Myths</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/bongtrop/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg 1x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_128x0_resize_q100_box.jpg 2x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg" class="rounded-circle" alt="bongtrop">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/bongtrop/" class="small">bongtrop</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@bongtrop">@bongtrop</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p><img src="https://i.imgur.com/dbpqE68.png?1" alt="cover"></p>
+<p>ช่วงนี้เจอคนเข้าใจเกี่ยวกับ Virtual Private Network (VPN) แบบแปลก ๆ บ่อยมาก (เริ่มรำคาญ) และก็มีคนบางกลุ่มแจก VPN server ให้กับคนอื่นใช้งานฟรี ๆ และคนที่ไปใช้งานส่วนใหญ่ไม่ได้มีความเข้าใจเกี่ยวกับ VPN ที่มากพอ ทำให้ไม่รู้ความเสี่ยงที่ตัวเองจะเจอเมื่อไปใช้งาน VPN server ที่ไม่น่าเชื่อถือ</p>
+<p>ก่อนที่จะไปเริ่มวิเคาะห์ความเสี่ยงต่าง ๆ ของ VPN เรามาทำความรู้จักกับ VPN แบบละเอียดกันก่อน เพื่อความเข้าใจ บทความนี้ผมจะมา implement โปรแกรม VPN อย่างง่ายด้วยภาษา Python แบบ step by step เพื่อให้ผู้อ่านสามารถทดลองทำตามและเข้าใจการทำงานของมันได้ง่ายขึ้น</p>
+<blockquote>
+<p>การจะเข้าใจบทความนี้ ผู้อ่านควรจะมีความรู้พื้นฐานเกี่ยวกับ Operating System และ Network มาก่อน หากใครที่ยังไม่ชำนาญแนะนำให้ข้ามไปอ่านหัวข้อการวิเคาะห์ความเสี่ยงได้เลยครับ</p>
+</blockquote>
+<h2 id="virtual-private-network-vpn">Virtual Private Network (VPN)</h2>
+<p>ถ้าจะพูดให้ง่ายที่สุดเลย VPN ก็คือโปรแกรม ๆ หนึ่งที่จะทำการจำลอง network device ขึ้นมา และทำการนำข้อมูล network ต่าง ๆ ที่ถูกส่งเข้าไปใน network device นั้น ส่งต่อไปให้กับเครื่อง computer เครื่องอื่น หรือรับข้อมูล network จากเครื่องอื่นมาส่งออกทาง network device จำลองนั้นเอง เพื่อให้จินตนาการง่าย ๆ ภาพจะเป็นดัง diagram นี้ครับ</p>
+<p><img src="https://i.imgur.com/24jn7jG.png" alt="VPN Overview"></p>
+<p>จะเห็นว่าโปรแกรม VPN นั้น implement ง่ายมาก สิ่งที่เราต้องทำมีแค่สามอย่างเท่านั้นคือ</p>
+<ul>
+<li>จำลอง network device ขึ้นมา</li>
+<li>อ่านหรือเขียน ข้อมูลไปที่ network device จำลอง</li>
+<li>ส่งหรือรับ ข้อมูล network ไปให้ computer อีกเครื่องหนึ่ง</li>
+</ul>
+<h2 id="virtual-network-device">Virtual Network Device</h2>
+<p>ในการสร้าง network device จำลอง ทุกวันนี้ทำได้ไม่ยากเลย เพราะว่าตัว kernel ต่าง ๆ ส่วนใหญ่จะมีแถมมาให้อยู่แล้ว สำหรับ Linux จะชื่อว่า <a href="https://en.wikipedia.org/wiki/TUN/TAP">TUN/TAP</a> ในการ load <code>TUN/TAP</code> driver แค่รันคำสั่ง <code>modprobe tun</code> ก็จะได้แล้ว เพื่อความง่ายผมจะอธิบายการสร้าง virtual network device ของ Linux และใช้งาน <code>TUN/TAP</code> kernel module เท่านั้น</p>
+<p>โดน virtual network device ที่ถูกสร้างมาจาก <code>TUN/TAP</code> driver จะมีอยู่สอง mode คือ <code>TUN</code> และ <code>TAP</code> โดยมีความแตกต่างดังนี้ครับ</p>
+<ul>
+<li><code>TUN</code>: จะเป็น network device ที่ Layer 3 หรือ Network Layer ตัว device จะมี IP address แต่ไม่มี MAC address และไม่สามารถส่ง packet ใน layer ที่ 2 ได้</li>
+<li><code>TAP</code>: จะเป็น network device ที่ Layer 2 หรือ Data Link Layer ก็คล้าย ๆ กับ <code>TUN</code> แต่อยู่ layer 2</li>
+</ul>
+<p>มาเริ่มใช้งาน <code>TUN/TAP</code> driver กัน หลังจากที่เรา load <code>TUN/TAP</code> driver เสร็จแล้วโดยใช้คำสั่ง</p>
+<pre><code class="language-bash">modprobe tun
+</code></pre>
+<p>เราจะเจอไฟล์ <code>/dev/net/tun</code> ถูกสร้างขึ้นมา จากนั้นเราจะสั่งงาน <code>TUN/TAP</code> driver ผ่านทางการอ่านและเขียนไฟล์นี้ครับ ใครที่อยากรู้วิธีการส่งงานต่าง ๆ ผ่านการอ่านและเขียนไฟล์ตรง ๆ สามารถอ่านได้จากไฟล์นี้ครับ <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/networking/tuntap.rst?id=HEAD">/Documentation/networking/tuntap.rst</a></p>
+<p>ไฟล์ที่อยู่ใน <code>/dev</code> เกือบทุกไฟล์ จะเป็นวิธีหนึ่งที่ใช้ติดต่อกับ kernel คนที่คุ้นเคยกับ Linux น่าจะรู้อยู่แล้ว จริง ๆ ก็ไม่ได้ใจร้ายขนาดที่ต้องไป interact กับ dev ไฟล์ ตรง ๆ ครับ ใน OS ส่วนใหญ่ก็จะแถมโปรแกรม <code>ip</code> มาให้ด้วยเราก็สามารถสั่งงาน <code>TUN/TAP</code> driver ด้วยวิธีนี้ได้เหมือนกัน เช่นสร้าง virtual network interface ชื่อ <code>tun0</code> เป็น mode <code>TUN</code> ก็จะใช้คำสั่งด้านล่างได้เลยครับ</p>
+<pre><code class="language-bash">ip tuntap add dev tun0 mode tun
+</code></pre>
+<p>เมื่อลอง <code>ip a</code> ก็จะเจอว่ามี virtual network device <code>tun0</code> ถูกสร้างขึ้นมาแล้ว</p>
+<pre><code>$ ip a                                
+[...]
+27: tun0: &lt;POINTOPOINT,MULTICAST,NOARP&gt; mtu 1500 qdisc noop state DOWN group default qlen 500
+    link/none
+</code></pre>
+<p>คำสั่ง <code>ip</code> เราสามารถทำได้หลายอย่างมาก ๆ เลย เช่น กำหนดค่า IP ให้กับ device หรือกำหนด network route ต่าง ๆ สำหรับใครที่สนใจสามารถอ่านได้ <a href="https://man7.org/linux/man-pages/man8/ip.8.html">ip(8) — Linux manual page</a></p>
+<p>หลังจากที่เราได้ virtual network device เราก็จะสามารถอ่านข้อมูล network ที่วิ่งผ่าน network device ที่เราสร้างขึ้นมาได้โดยการอ่านไฟล์ <code>/dev/net/tun</code> ได้เลยครับ แต่ก่อนจะอ่านได้อาจจะต้องมีการบอกกับ driver ก่อนว่าอยากจะดึงหรือเขียนข้อมูลอะไร ผมจะไม่ลงรายละเอียดในบทความนี้ สำหรับใครที่สนใจสามารถอ่านได้จาก source code ตัวอย่างนี้ได้เลยครับ <a href="https://gist.github.com/glacjay/585369">Reading/writing Linux&rsquo;s TUN/TAP device using Python</a></p>
+<p>สำหรับในบทความนี้ เพื่อความง่ายเราจะใช้ Python library ชื่อว่า <a href="https://github.com/montag451/pytun">python-pytun</a> ซึ่งจะจัดการเรื่องต่าง ๆ ที่เคยอธิบายในหัวข้อนี้ทั้งหมดให้ ติดตั้งโดยรันคำสั่งต่อไปนี้เลยครับ</p>
+<pre><code class="language-bash">pip install python-pytun
+</code></pre>
+<p>จากนั้นสร้างไฟล์ <code>tun_test.py</code> โดยที่จะเป็นการสร้าง tun device และทำการอ่านข้อมูล network ที่วิ่งเข้ามาที่ tun device</p>
+<pre><code class="language-python">from pytun import TunTapDevice
+
+# Create TunTabDevice object
+tun = TunTapDevice()
+
+# Define tun device IP address, destination IP address (Peer to Peer connection), and netmask
+tun.addr = '1.3.3.7'
+tun.dstaddr = '1.3.3.8'
+tun.netmask = '255.255.255.255'
+tun.mtu = 1500
+
+# Start tun device
+tun.up()
+
+print(f&quot;[+] Enable {tun.name} device&quot;)
+
+# Loop to read the network packet from tun device
+while True:
+    print(tun.read(tun.mtu))
+</code></pre>
+<p>จากนั้นทำการรันไฟล์ <code>tun_test.py</code> และทดลอง <code>ping</code> เข้าไปที่ device ที่ถูกสร้างขึ้นมาผลที่ได้คือ เราจะเห็นข้อมูล network ที่วิ่งผ่าน tun device แล้วดังรูปต่อไปนี้</p>
+<p><img src="https://i.imgur.com/1kdBe7T.png" alt=""></p>
+<p>จากตัวอย่างจะเป็นการอ่านโดยใช้ <code>tun.read()</code> ถ้าเราจะเขียนข้อมูล network ลงไปใน device ก็แค่เปลี่ยนเป็น <code>tun.write()</code> สำหรับรายละเอียดเพิ่มเติมสามารถอ่านได้ใน Github repository ของ <a href="https://github.com/montag451/pytun">python-pytun</a>  ครับ</p>
+<p>จะเห็นว่าตอนนี้เราสามารถสร้าง virtual network device ได้แล้ว และสามารถเขียนโปรแกรมเพื่ออ่านและเขียนข้อมูล network กับ device ได้แล้วที่เหลือก็จะเป็นการส่งข้อมูลไปให้กับ computer เครื่องอื่น</p>
+<h2 id="socket-programming">Socket Programming</h2>
+<p>ผมเลือกใช้ TCP socket เพื่อส่งข้อมูลระหว่างเครื่องครับ เพราะว่ามันเขียนง่าย, อธิบายง่าย, และคนส่วนใหญ่จะรู้จักอยู่แล้ว โดยผมจะแบ่งการทำงานออกเป็น 2 thread มีหน้าที่ดังนี้</p>
+<ul>
+<li><strong>Thread 1</strong>: loop อ่านข้อมูลจาก tun device และทำการส่งออกทาง TCP socket ไปให้กับอีกเครื่องหนึ่ง</li>
+<li><strong>Thread 2</strong>: loop รับข้อมูลจาก TCP socket จากนั้นนำมาเขียนเข้าไปใน tun device</li>
+</ul>
+<p>ผมว่าใครอ่านมาถึงตรงนี้น่าจะนำไป implement VPN กันเองได้แล้ว ง่ายใช่ไหมครับ ไปดู code กันเลย</p>
+<p>code ฝั่ง server (b7z_vpn_server.py) กำหนดให้ตัวเองมี IP address <code>1.3.3.7</code> และ peer ตรงข้ามเป็น <code>1.3.3.8</code> บางคนอาจจะไม่ชินกับการสร้าง network device เป็น peer to peer สรุปง่าย ๆ เลยคือมันจะเป็น device ที่เอาไว้คุยกับเครื่อง ๆ เดียวเท่านั้น ในตัวอย่างนี้คือจะคุยกับ <code>1.3.3.8</code> เท่านั้น</p>
+<pre><code class="language-python">from pytun import TunTapDevice
+import threading
+import socket
+
+# Create TunTabDevice object
+tun = TunTapDevice()
+
+# Define tun device IP address, destination IP address (Peer to Peer connection), and netmask
+tun.addr = '1.3.3.7'
+tun.dstaddr = '1.3.3.8'
+tun.netmask = '255.255.255.255'
+tun.mtu = 1500
+
+# Start tun device
+tun.up()
+
+print(f&quot;[+] Enable {tun.name} device&quot;)
+
+# Thread 1
+def tun_task(conn):
+    global tun
+    global IS_CONNECT
+    while IS_CONNECT:
+        # Read network data from tun device
+        data = tun.read(tun.mtu)
+        try:
+            # Send data with TCP Socket
+            conn.send(data)
+            print(f&quot;[+] Send data {len(data)} bytes&quot;)
+        except OSError as e:
+            IS_CONNECT = False
+            break
+
+IS_CONNECT = False
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    s.bind(('0.0.0.0', 31337))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print('Connected by', addr)
+        IS_CONNECT = True
+
+        # Create and start Thread 1
+        task = threading.Thread(target=tun_task, args=(conn,))
+        task.start()
+
+        # Thread 2
+        while IS_CONNECT:
+            # Receive network data from TCP Socket
+            data = conn.recv(tun.mtu)
+            if data:
+                # Write network data to tun device
+                tun.write(data)
+                print(f&quot;[+] Recv data {len(data)} bytes&quot;)
+            else:
+                IS_CONNECT = False
+
+
+        task.join()
+        conn.close()
+</code></pre>
+<p>code ฝั่ง client (b7z_vpn_client.py) ก็จะคล้าย ๆ กับ server เลย เปลี่ยนแค่ IP address ของ tun device สลับกับ server คือ ตัวเอง IP address (1.3.3.8) และ peer ตรงข้าม IP address (1.3.3.7) และเปลี่ยนจากรอรับ connection เป็น connect ไปหา server แทน</p>
+<pre><code class="language-python">from pytun import TunTapDevice
+import threading
+import socket
+
+# Create TunTabDevice object
+tun = TunTapDevice()
+
+# Define tun device IP address, destination IP address (Peer to Peer connection), and netmask
+tun.addr = '1.3.3.8'
+tun.dstaddr = '1.3.3.7'
+tun.netmask = '255.255.255.255'
+tun.mtu = 1500
+
+# Start tun device
+tun.up()
+
+print(f&quot;[+] Enable {tun.name} device&quot;)
+
+# Thread 1
+def tun_task(conn):
+    global tun
+    global IS_CONNECT
+    while IS_CONNECT:
+        # Read network data from tun device
+        data = tun.read(tun.mtu)
+        try:
+            # Send data with TCP Socket
+            conn.send(data)
+            print(f&quot;[+] Send data {len(data)} bytes&quot;)
+        except OSError as e:
+            IS_CONNECT = False
+            break
+
+IS_CONNECT = False
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    # My testing server (replace this with your server)
+    s.connect(('ggez.cc', 31337))
+    IS_CONNECT = True
+
+    # Create and start Thread 1
+    task = threading.Thread(target=tun_task, args=(s,))
+    task.start()
+
+    # Thread 2
+    while IS_CONNECT:
+        # Receive network data from TCP Socket
+        data = s.recv(tun.mtu)
+        if data:
+            # Write network data to tun device
+            tun.write(data)
+            print(f&quot;[+] Recv data {len(data)} bytes&quot;)
+        else:
+            IS_CONNECT = False
+    
+    task.join()
+    s.close()
+</code></pre>
+<p>จะเห็นว่า code ทั้งฝั่ง server และ client แทบไม่ต่างกันเลย และก็เขียนได้ง่ายมาก เมื่อรัน code VPN ของเราทั้งสองฝั่ง เราก็จะสามารถเชื่อต่อไปหา ฝั่งตรงข้ามได้แล้ว จากรูปต่อไปนี้จะเห็นว่าสามารถ connect ไปหา server ผ่าน IP address 1.3.3.7</p>
+<p><img src="https://i.imgur.com/J9cSOpU.png" alt=""></p>
+<p>ตัวอย่างจากรูปด้านบนยังอาจจะไม่เห็นภาพชัดเจน มาลองดูตัวอย่างที่น่าจะมีคนชอบทำมากที่สุดดีกว่าคือ ให้เครื่อง client ส่ง network traffic มาออก internet ที่เครื่อง server</p>
+<p>จากโปรแกรม VPN ของเราได้ทำการส่งข้อมูล network ไปมาได้อยู่แล้ว ดังนั่นสิ่งที่เราต้องทำก็จะเหลือไม่เยอะแล้วคือ</p>
+<ul>
+<li>ให้เครื่อง server forward network traffic จาก tun device ไปออก internet ที่ eth device (device ที่ใช้ออก internet เครื่อง server ผมคือ eth)</li>
+<li>จากนั้นทำ NAT เปลี่ยน source IP address ให้เป็นเครื่อง server ของทุก packet</li>
+</ul>
+<p>วิธีการก็ทำตามคำสั่งต่อไปนี้ที่เครื่อง server เลยครับ</p>
+<pre><code class="language-bash"># เปิดใช้งาน function IP forwarding
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+
+# อนุญาติ traffic ทั้งหมด จาก tun0 device
+iptables -I INPUT 1 -i tun0 -j ACCEPT
+
+# ยอมให้ forward traffic ทั้งหมด จาก tun0 ไปที่ eth0
+iptables -I FORWARD 1 -i tun0 -o eth0 -j ACCEPT
+
+# ยอมให้ forward traffic ทั้งหมด จาก eth0 ไปที่ tun0 
+iptables -I FORWARD 1 -i eth0 -o tun0 -j ACCEPT
+
+# ทำ NAT เมื่อมี output ไปที่ eth0
+iptables -t nat -I POSTROUTING 1 -o eth0 -j MASQUERADE
+</code></pre>
+<p>เมื่อรันคำสั่งต่อไปนี้ครบแล้ว เครื่อง server จะสามารถทำการ forward ข้อมูลจาก tun ไปที่ eth ได้แล้ว จากนั้นเราต้องทำการกำหนด route table ในเครื่อง client ให้เมื่อมีการออก internet ให้ไปใช้ tun device แทน รันคำสั่งต่อไปนี้ (ผม route เฉพาะ 216.239.0.0/16 เนื่องจากจะ route เฉพาะ website <code>ifconfig.me</code>)</p>
+<pre><code class="language-bash"># IP address ที่อยู่ใน range 216.239.0.0/16 จะถูกส่งไปที่ tun0
+ip route add 216.239.0.0/16 dev tun0
+</code></pre>
+<p>จากนั้นเมื่อ <code>curl ifconfig.me</code> ที่ฝั่ง client ก็จะได้ IP address ของ server แล้วดังรูปต่อไปนี้</p>
+<p><img src="https://i.imgur.com/S5VfdYj.png?1" alt=""></p>
+<p>ถ้าอ่านถึงตรงนี้ แล้วผมว่าทุกคนน่าจะเข้าใจการทำงานของ VPN โดยละเอียดแล้วว่ามันทำงานยังไง flow ของข้อมูลเป็นยังไง ก็มาถึงช่วงสำคัญที่อยากจะพูดแล้ว</p>
+<h2 id="ความเสยงตาง-ๆ-เมอใชงาน-vpn">ความเสี่ยงต่าง ๆ เมื่อใช้งาน VPN</h2>
+<blockquote>
+<p>ขอบอกก่อนว่าโปรแกรม VPN ตัวอย่างจากหัวข้อที่แล้ว <strong>อย่านำไปใช้งานกันจริงนะครับ</strong> มันไม่มีความปลอดภัยเลย อยากจะให้เป็นตัวอย่างเพื่อให้เห็นภาพแค่นั้นเอง</p>
+</blockquote>
+<p>มาดูกันทีละส่วนกันครับ ส่วนแรกจะเป็นส่วนที่คน focus กันมากคือส่วนที่โปรแกรม VPN ส่งข้อมูลหากันครับ ดังรูปมีวงสีแดงไว้</p>
+<p><img src="https://i.imgur.com/YKecEjN.png" alt=""></p>
+<p>ในส่วนนี้จะเป็นส่วนข้อมูลที่จะผ่าน router บ้านเรา, internet provider, หรือ gateway ต่าง ๆ แล้วเข้าไปหา VPN server ครับ ในส่วนนี้โปรแกรม VPN ที่ปลอดภัยจะต้องมีความสามารถแก้ปัญหาต่อไปนี้ได้ครับ</p>
+<ul>
+<li><strong>Confidentiality</strong>: ข้อมูลที่วิ่งกันผ่าน internet เนี่ยจะต้องอ่านไม่ออก ถ้ามีคนมา sniff network ก็จะต้องอ่านไม่ออกเช่นกันครับ</li>
+<li><strong>Authentication</strong>: จะต้องยืนยันตัวตนคนส่งข้อมูล network ได้ว่าเป็นคนที่มีสิทธิ์ในการส่งไหม</li>
+<li><strong>Integrity</strong>: ข้อมูล network ที่ส่งไปมาห้ามถูกปลอมแปลงได้</li>
+</ul>
+<p>เรามาลองวิเคราะห์ความปลอดภัยจาก 3 factor นี้ใน VPN ที่เราสร้างมาดูครับ คำตอบคือ</p>
+<ul>
+<li><strong>Confidentiality</strong>: ไม่มีแน่นอนครับ ไม่ได้ทำการเข้ารหัส รับอะไรมาจาก tun device ก็ส่งอย่างนั้นเลยครับ</li>
+<li><strong>Authentication</strong>: ก็ไม่มีอีกเช่นเคยครับ ใคร connect เข้ามาถูก port ตัว server ก็รับหมด ใจถึงพึ่งได้</li>
+<li><strong>Integrity</strong>: Confidentiality ไม่มีก็อย่าหวังกับ Integrity ครับ</li>
+</ul>
+<p>ใครที่จะใช้โปรแกรม VPN จากหัวข้อด้านบน ก็ไปเพิ่มความปลอดภัยก่อนใช้ด้วยนะครับ (เข้ารหัส, ทำ authen, และเพิ่ม integrity check) แต่ผมก็ไม่แนะนำให้ใช้หรือเขียนเองอยู่ดีครับ ในโลกตอนนี้มีหลาย ๆ protocol ให้เลือกใช้งานครับ</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Internet_Protocol_Security">Internet Protocol Security (IPsec)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security (SSL/TLS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security">Datagram Transport Layer Security (DTLS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/WireGuard">WireGuard</a></li>
+</ul>
+<p>ส่วนใครขี้เกียจก็ใช้ VPN สำเร็จรูปที่มีคนสร้างมาอยู่แล้วได้เลยครับ เช่น</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/OpenVPN">OpenVPN</a> จะใช้ protocol Transport Layer Security (SSL/TLS)</li>
+<li><a href="https://en.wikipedia.org/wiki/AnyConnect">Cisco AnyConnect VPN</a> จะใช้ Datagram Transport Layer Security (DTLS)</li>
+<li><a href="https://www.wireguard.com/">WireGuard VPN</a> อันนี้ก็เป็น protocol ของตัวเอง <strong>ผมชอบตัวนี้สุดแล้ว ใช้ง่ายจัดเลย แถมไวด้วย</strong></li>
+</ul>
+<p>ถึงแม้ว่าจะใช้ product ที่มี 3 factor ครบ และเป็น product ที่ได้รับการยอมรับอยู่แล้ว ผู้ใช้ตัวโปรแกรมก็จำเป็นจะต้องมี security awareness ด้วย หลาย ๆ ครั้งจะมีเคสที่ถูกแฮกเนื่องจากใช้งานตัว VPN อย่างไม่เหมาะสม</p>
+<p>ผมจะยกตัวอย่างง่าย ๆ เลย ลองดูภาพต่อไปนี้ครับ</p>
+<p><img src="https://i.imgur.com/HJLxnZT.jpg" alt="image from https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/200533-AnyConnect-Configure-Basic-SSLVPN-for-I.html"></p>
+<p>เท่าที่เจอมาผู้ใช้งานจะกดปุ่ม <code>Connect Anyway</code> โดยไม่คิดเลยครับ บางที IT Support ก็จะแนะนำผู้ใช้ให้กดปุ่มนี้เช่นกัน การกดปุ่มนี้โดยไม่คิดไม่ตรวจสอบ Server Certificate ให้ดีก่อน จะทำให้แฮกเกอร์สามารถทำ Man-in-the-Middle โปรแกรม VPN ได้เลย เราก็จะเสีย factor ความปลอดภัย หลาย ๆ ตัวไปเช่น Confidentiality และ Integrity</p>
+<p>ต่อมาจะเป็นอีกจุดหนึ่งที่คนจะไม่ค่อยจะสนใจกัน แต่เป็นอีกจุดหนึ่งที่ควรจะใส่ใจเป็นพิเศษด้วยซ้ำ จากภาพที่วงแดงไว้เลยครับ</p>
+<p><img src="https://i.imgur.com/huLHQHe.png" alt=""></p>
+<p>ความน่าเชื่อถือของ VPN server ก็เป็นสิ่งสำคัญ เนื่องจากเราส่งข้อมูล network ไปให้กับ VPN server ถึงแม้ว่าเราจะทำการ encrypt ข้อมูลแน่นหนายังไงคนที่จะแกะได้ก็จะเป็น VPN server ครับ ทำให้ VPN server มีสิทธิที่จะอ่านหรือแก้ไข ข้อมูล network ทั้งหมดที่เราส่งไปให้ สำหรับ VPN ภายในองค์กรที่ endpoint จะเป็นเครื่อง server ภายในองค์กรเอง และจะมีแค่ข้อมูลที่วิ่งเข้า network ภายในองค์กรเท่านั้น จะไม่ค่อยมีเรื่องให้ต้องห่วง แต่สำหรับ VPN ฟรีที่ใช้สำหรับ ออก internet ทั้งหลาย ใครใช้ก็คิดไว้เลยนะครับ ว่ายอมให้เขา Man-in-the-Middle แบบเต็มใจสุด ๆ ไปเลย เอาข้อมูลไปประเคนให้เขาถึงที่ 555555+</p>
+<h2 id="ชวงถามตอบ">ช่วงถามตอบ</h2>
+<p><strong>Q:</strong> VPN เป็นเน็ตฟรี ? <br>
+<strong>A:</strong> ถ้าอ่านมาถึงตรงนี้ก็น่าจะตอบได้ทุกคนว่า ไม่ใช่ แถมเสีย overhead ให้กับการทำ encryption อีก</p>
+<p><strong>Q:</strong> การใช้ VPN จะทำให้ internet เร็วขึ้น ? <br>
+<strong>A:</strong> ถ้าอ่านมาถึงตรงนี้หลาย ๆ คนอาจจะตีความว่ามันจะเร็วขึ้นได้ยังไง มันไปอ้อม VPN server มาทีหนึ่ง ก็ต้องช้ากว่าอยู่แล้ว ผมก็เคยคิดแบบนั้นมาก่อนครับ แต่จริง ๆ แล้วมันเป็นไปได้อยู่ครับ ถ้าเจ้าของ VPN server มี private route ที่เร็วกว่า public route ปกติ แต่ก็นั่นแหละครับ การจะมี private route ที่ใหญ่และดี เป็นเรื่องที่ยาก อาจจะเป็นไปได้กับผู้ให้บริการเจ้าใหญ่ ๆ ครับ และก็อย่างของ Cloudflare จะเร็วขึ้นเพราะเขาเก็บ cache ของ website ส่วนใหญ่ไว้ให้แล้ว</p>
+<p><strong>Q:</strong> จะทำให้ใช้งาน internet ปลอดภัยขึ้นไหม ? <br>
+<strong>A:</strong> ก็ต้องดูว่าปลอดภัยจากใคร VPN ก็เป็นแค่การย้ายจุดออก internet ไปที่อื่น แถมยังมีความเสี่ยงเรื่องโดน hack จากเจ้าของ VPN server เอง แต่ถ้าเลือก VPN server ดีๆ มีความน่าเชื่อถือ ก็จะปลอดภัยขึ้นแน่นอน</p>
+<p><strong>Q:</strong> การใช้ internet ในองค์กร ด้วย VPN จะปลอดภัยกว่า ? <br>
+<strong>A:</strong> ก็แค่องค์กรจะดักจับข้อมูลเราไม่ได้ ไม่น่าจะปลอดภัยขึ้น</p>
+<h2 id="สรป">สรุป</h2>
+<p>คือไปเจอหลาย ๆ คน ให้ความรู้เกี่ยวกับ VPN ได้วิบัติมาก และมีหลาย ๆ คนใช้ประโยชน์จากความไม่รู้ของคนอื่น ๆ หาประโยชน์ โดยการแจก VPN ฟรีไปทั่วเลย บางคนก็หลอกว่าเป็นเน็ตฟรี บางคนก็หลอกว่าใช้แล้วปลอดภัยขึ้น <strong>ผมก็บอกได้แค่ว่าอย่าไปเชื่อคนพวกนั้นเลยครับ</strong> เราไม่มีทางรู้ได้เลยว่าเขาจะเอา network traffic เราไปทำอะไรบ้าง ก็ถ้าจำเป็นต้องใช้งานจริง ๆ ก็เลือกเจ้าใหญ่ ๆ ที่มีความน่าเชื่อถือหน่อยละกันนะครับ</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; SUAM 2022
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/app.js"></script>
+        
+    
+        
+            <script src="/dist/lazyload.js"></script>
+        
+    
+        
+            <script src="/dist/main.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~ekkoLightbox.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+document.body.onload = () => {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+};
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>
