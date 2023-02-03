@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+  
+     TDEA (3DES) ปลอดภัยกว่า AES-128 จริงไหม | 
+    SUAM
+  
+</title><meta name="description" content="มาทำความรู้จักกับการโจมตี Meet-in-the-Middle (MitM) เพื่ออธิบายความเสี่ยงของการเข้ารหัสแบบ Triple Data Encryption Algorithm (TDEA) และเลิกทำการเปรียบเทียบกับ AES-128 ซะที"><meta name="author" content="bongtrop">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/favicon-32x32.png " sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c344b">
+<link rel="icon" href="/favicon.ico">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173363806-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173363806-1');
+</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<link rel="stylesheet" href="/dist/main.min.css"><link rel="canonical" href="https://suam.wtf/posts/tdea-vs-mitm/"><meta property="og:title" content="TDEA (3DES) ปลอดภัยกว่า AES-128 จริงไหม" />
+<meta property="og:description" content="มาทำความรู้จักกับการโจมตี Meet-in-the-Middle (MitM) เพื่ออธิบายความเสี่ยงของการเข้ารหัสแบบ Triple Data Encryption Algorithm (TDEA) และเลิกทำการเปรียบเทียบกับ AES-128 ซะที" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suam.wtf/posts/tdea-vs-mitm/" /><meta property="og:image" content="https://i.imgur.com/mQZLZOf.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-03T00:00:00+00:00" />
+
+<meta itemprop="name" content="TDEA (3DES) ปลอดภัยกว่า AES-128 จริงไหม">
+<meta itemprop="description" content="มาทำความรู้จักกับการโจมตี Meet-in-the-Middle (MitM) เพื่ออธิบายความเสี่ยงของการเข้ารหัสแบบ Triple Data Encryption Algorithm (TDEA) และเลิกทำการเปรียบเทียบกับ AES-128 ซะที"><meta itemprop="datePublished" content="2023-02-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="622"><meta itemprop="image" content="https://i.imgur.com/mQZLZOf.png">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://i.imgur.com/mQZLZOf.png"/>
+
+<meta name="twitter:title" content="TDEA (3DES) ปลอดภัยกว่า AES-128 จริงไหม"/>
+<meta name="twitter:description" content="มาทำความรู้จักกับการโจมตี Meet-in-the-Middle (MitM) เพื่ออธิบายความเสี่ยงของการเข้ารหัสแบบ Triple Data Encryption Algorithm (TDEA) และเลิกทำการเปรียบเทียบกับ AES-128 ซะที"/>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top shadow-sm" id="navbar-main-menu">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="https://suam.wtf/">SUAM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                
+            
+                <li class="nav-item">
+                    <a href="https://webring.wonderful.software#suam.wtf" title="วงแหวนเว็บ" target="_blank" class="nav-link" rel="noopener">
+                        <img src="/images/webring.black.svg" width="25px" height="25px" alt="วงแหวนเว็บ" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    
+<main class="content-page container pt-7 pb-5">
+    
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="meta text-muted mb-3">
+                            <p class="created text-muted text-uppercase font-weight-bold mb-1">February 3, 2023</p>
+                            <span class="mr-2"><i class="fas fa-book-open mr-2"></i>622 words</span>
+                            <span><i class="fas fa-clock mr-2"></i>3 mins read</span>
+                        </div>
+
+                        <h1>TDEA (3DES) ปลอดภัยกว่า AES-128 จริงไหม</h1>
+
+                        <ul class="authors list-inline"><li class="list-inline-item mr-3">
+                    <div class="media author"><a href="/authors/bongtrop/" class="mr-3">
+                                    <picture>
+                                        <source srcset="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg 1x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_128x0_resize_q100_box.jpg 2x, /authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_192x0_resize_q100_box.jpg 3x">
+                                        <img src="/authors/bongtrop/bongtrop_hu65f5a07b0445c5fedda84b3f6d0d2244_19133_64x0_resize_q75_box.jpg" class="rounded-circle" alt="bongtrop">
+                                    </picture>
+                                </a><div class="media-body">
+                            <h5 class="name my-0"><a href="/authors/bongtrop/" class="small">bongtrop</a>
+                            </h5><p class="social small text-muted">
+                                    <a href="https://twitter.com/@bongtrop">@bongtrop</a>
+                                </p></div>
+                    </div>
+                </li></ul>
+                    </div>
+                </div><div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="content">
+                            <p><img src="https://i.imgur.com/mQZLZOf.png" alt="Cover"></p>
+<p>สืบเนื่องมาจาก <code>Table 1</code> ในเอกสาร <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf">NIST Special Publication 800-131A Revision 2</a> ตัว Three-key TDEA Encryption จะ deprecated และไม่อนุญาตให้ใช้งานแล้วหลังจาก 2023 (คือปีที่เขียนบทความนี้) เผื่อใครยังไม่รู้ TDEA ที่นิยมเลยคือ 3DES</p>
+<p><img src="https://i.imgur.com/qDQAWjC.png" alt="NIST.SP.800-131Ar2 Table 1"></p>
+<p>ดังนั้นหลาย ๆ standard หรือหลาย ๆ องค์กรได้เริ่มปรับตัวกันไปแล้วคือห้ามใช้ 3DES เพื่อเข้ารหัสใน application ใหม่ ๆ และตัว algorithm เองก็ archived ไปแล้วตั้งแต่ 2005 ทำให้เมื่อผม consult หรือ review security จะเจอเหตุผลต่าง ๆ นา ๆ มาโต้แย้ง โดยไม่ได้มีความเข้าใจในความเสี่ยงจริง ๆ ของตัว algorithm ผมเลยเขียนบทความนี้มาเป็นภาษาไทย เพื่อให้หลาย ๆ คนสามารถเข้าใจความเสี่ยงของการใช้งาน TDEA แบบมีหลักการและเหตุผลมากขึ้น</p>
+<h2 id="tdea-risks">TDEA Risks</h2>
+<p>ในบาง application บางทีจะติดเรื่องของ limitation ที่ยังจะจำเป็นที่จะต้องใช้ TDEA หรือ 3DES อยู่ เราจึงจำเป็นจะต้องมา analyse ถึงความเสี่ยง โดยความเสี่ยงใหญ่ ๆ ของตัว 3DES จะมีดังนี้</p>
+<h3 id="sweet32">Sweet32</h3>
+<p>จะเป็น Birthday Attack บนการเข้ารหัสแบบ 64-bit block ก็คือ DES หรือ 3DES นั้นเอง การโจมตีคือเมื่อมี collision ในบาง block เราจะสามารถได้ information ของ plaintext ออกมาได้ ซึ้ง การเข้ารหัสที่มีขนาด block เล็ก เช่น 64-bit จะทำให้มี sample space ของ plaintext และ ciphertext จึงมีโอกาศที่จะซ้ำกันสูง</p>
+<p>แต่ใน case ของ Sweet32 เราสามารถที่จะ compansate ความเสี่ยงโดยการ rotate key ที่ใช้สำหรับ encrypt บ่อยมากขึ้น และใช้ 3DES ในการ encrypt data ที่ไม่ได้ใหญ่มากได้ ไม่เกิน $2^{n/2}$ blocks การซ้ำกันของ ciphertext จึงเกิดขึ้นได้ยากอยู่ใน level ที่รับได้</p>
+<p>อย่างไรก็ตาม Sweet32 จะไม่ใช้หัวข้อหลักสำหรับบทความนี้ ดังนั้นจะขอข้ามไปก่อน สำหรับใครสนใจเป็นพิเศษสามารถอ่านเพิ่มเติมได้ที่ <a href="https://sweet32.info/">https://sweet32.info/</a></p>
+<h3 id="meet-in-the-middle-attack-mitm">Meet-in-the-Middle Attack (MitM)</h3>
+<p>ในปี 1977 สองตัวตึงแห่งวงการ Diffie และ Hellman เจอวิธีการที่จะสามารถ break double encryption schema ตัวอย่างง่าย ๆ คือการ encrypt ซ้อนกัน 2 ครั้ง คนละ key ได้โดยใช้เวลาแค่ 2 เท่าจากการ encrypt ครั้งเดียว โดยใช้ memory หรือ storage เข้ามาช่วย จากปกติจะต้องเพิ่มเป็น exponential เช่นการ DES ครั้งเดียวจะได้ security strength ที่ 56 bits คือจำเป็นจะต้อง brute force มากสุด $2^{56}$ ครั้งถึงจะได้ key กลับมา ถ้าเรา DES ซ้อนกัน 2 ครั้ง ($Enc_{k1}(Enc_{k2}(data))$) คนละ key เราก็ควรจะได้ security streangth ที่ 112 bits ใช้ไหมครับ เพราะ sample space ของ key คือ $2^{112}$ แต่โดยการใช้ MitM เราสามารถลดเวลาในการ brute force ลงเป็น $2^{57}$ สองครั้ง คือ $2^{56} + 2^{56} = 2^{57}$ เท่านั้น</p>
+<p>ความคาดหวังของ security strength ของ algorithm double encryption schema คือการที่เราจะ break DES 2 ชั้น เราจำเป็นจะต้องเดา key ที่มีความยาว 112 bits (key 1 + key 2) ดังรูปต่อไปนี้</p>
+<p><img src="https://i.imgur.com/DLKYvsH.png" alt="double encryption schema"></p>
+<p>แต่การโจมตี MitM สามารถ break ความคาดหวังนั้นโดยการที่เราแบ่งการ brute force ออกเป็น 2 ส่วน คือ</p>
+<ol>
+<li>$Intermediate = Enc_{k1}(Plaintext)$</li>
+<li>$Intermediate = Dec_{k2}(Ciphertext)$</li>
+</ol>
+<p>การโจมตีจะเริ่มจาก 1 หรือ 2 ก่อนก็ได้ แต่เพื่อให้อธิบายง่ายผมจะเล่า โดยเริ่มจากทำส่วนที่ 2 ก่อน การโจมตีจะมีขั้นตอนดังนี้</p>
+<ol>
+<li>ทำการ decrypt ciphertext โดยใช้ key ทุกค่าที่เป็นไปได้</li>
+<li>เก็บ Intermediate ที่คู่กับ key ทุก ๆ ความเป็นไปได้ไว้ใน memory หรือ storage</li>
+<li>เริ่มทำการ encrypt plaintext โดยใช้ key ที่ทำการสุ่มหรือเลือกมา</li>
+<li>จับ Intermediate ที่ได้จากขั้นตอนที่ 3 ไป match กับที่เก็บไว้ในขั้นตอนที่ 2
+<ol>
+<li>ถ้า match กันเราจะสามารถ break หา key ของการ encryption สำเร็จแล้ว</li>
+<li>ถ้าไม่ match กลับไปทำ 3 ใหม่จนกว่าจะเจอ key ที่ทำให้ match</li>
+</ol>
+</li>
+</ol>
+<p>* ขั้นตอนที่ 1 และ 2 เป็นส่วนที่ 2 และ ขั้นตอนที่ 3 และ 4 เป็นส่วนที่ 1</p>
+<p>จะเห็นว่า complexity ของขั้นตอนที่ 2 คือ $2^{56}$ และของขั้นตอนที่ 3 และ 4 ก็ยังคงเป็น $2^{56}$ เหมือนเดิม ทำให้การ break encryption double encryption schema มี complexity แค่เพียง $2^{56} + 2^{56} = 2^{57}$ เท่านั้นแต่เราคาดหวังกับ ตัว algorithm double encryption schema ตั้ง $2^{112}$ หายไปเกือบครึ่ง แลกกับการที่เราต้องมีพึ้นที่ในการ cache ผลลับของขั้นตอนที่ 2 เท่ากับจำนวน key (8 bytes) และ intermediate (8 bytes) เป็นจำนวน $2^{56}$ ชุด ซึ่งก็เป็นจำนวนไม่น้อยเช่นกัน</p>
+<p>สำหรับ TDEA เราคาดหวังว่า security strength จะเป็น 168 bits เนื่องจากใช้ DES 3 รอบคือ $56 * 3 = 168$ เราก็สามารถนำการโจมตีแบบนี้มาประยุคใช้กับการ TDEA เพื่อลด security strength ลงเหลือ 112 bits ได้ดังนี้</p>
+<p><img src="https://i.imgur.com/caEl8XX.png" alt="tdea"></p>
+<p>เหมือนเดิมเราก็แบบการโจมตีออกเป็น 2 ส่วนเช่นเดิมคือ</p>
+<ol>
+<li>$Intermediate = Enc_{k1}(Dec_{k2}(Plaintext))$</li>
+<li>$Intermediate = Dec_{k3}(Ciphertext)$</li>
+</ol>
+<p>จากนั้นโจมตีโดยใช้ขั้นตอนเดิมเลยแค่เปลี่ยนการเตรียมการ logic นิดหน่อยในขั้นตอนทึ่ 3 เราก็จะสามารถ break TDEA โดยใช้ complexity ส่วนที่ 1 เป็น $2^{112}$ และส่วนที่ 2 เป็น $2^{56}$ รวมกันก็จะประมาณ $2^{112} + 2^{56} \approx 2^{112}$ เท่านั้น</p>
+<p>ถ้าจะให้สรุปง่าย ๆ คือการโจมตีแบบ MitM เป็นการลด complexity ของการ brute force โดยใช้ memory หรือ storage มาจำ intermediate state ไว้ เพื่อให้สามารถทำแค่ครึ่งเดียว และจากนั้นนำมา search ของส่วนที่เหลือใน memory หรือ storage ได้ จุดสำคัญคือ technique นี้จะ work กับ algorithm ที่ความซับซ้อนเพิ่มขึ้นเป็น non-linear ใน layer ที่เพิ่มขึ้น อีกทั้งมีการนำ technique นี้ไปใช้ในการโจมตีประเภทอื่น ๆ ทางด้าน cyber security เช่น ไปใช้หา hash collision เป็นต้น</p>
+<h3 id="สรป">สรุป</h3>
+<p>ดังนั้นถ้าพูดถึงความปลอดภัยของ TDEA เช่น 3DES เราจะไม่ได้ให้ security strength เป็น 168 bits เราจะมองมันมี security strength แค่ 112 ซึ้งน้อยกว่า AES-128 ที่มี security strength 128 bits ซะอีก แถมมีเรื่อง Sweet32 รวมไปถึงใช้ power ในการ computation ที่มากกว่าด้วย</p>
+<p>ดังนั้นเหตุผลที่มีคนจำนวนไม่น้อยมาใช้อ้างเพื่อยังใช้งาน 3DES หรือ TDEA ได้ต่อไปคือ AES-128 ยังสามารถใช้ได้ดังนั้น 3DES ที่มี key ยาวตั้ง 168 bits ก็จะต้องใช้ได้ จึงไม่เป็นจริง เพราะ</p>
+<ol>
+<li>AES มี blocksize 128 bits ส่วน 3DES มี blocksize แค่ 64 bits 3DES จึงเกิด birthday paradox ได้ง่ายกว่า (Sweet32)</li>
+<li>เมื่อเจอการโจมตี MitM DES ไม่ได้มี security strength ที่ 168 bits มีแค่ 112 bits แม้ key จะยาวถึง 168 bits ก็ตาม</li>
+</ol>
+<p>หวังว่าทุกคนจะเห็นภาพของความเสี่ยงของ 3DES มากขึ้นนะครับ แค่ไม่กี่คนก็ยังดี ขนาด NIST ยังไม่ effective ยังต้องอธิบายซ้ำ ๆ ขนาดนี้ ถ้า effective แล้วจะขนาดไหน ขอบคุณที่ฟังผมบ่นมาถึงตรงนี้นะครับ บทความนี้เกิดมาจากความเหนื่อยจากการต้องอธิบายซ้ำ ๆ ในเรื่องเดิม ๆ</p>
+<p>จริง ๆ แล้ว MitM มีการโจมตีแบบหลาย ๆ dimension ที่มีความเจ๋งกว่านี้อีกมาก ถ้าใครสนใจสามารถเข้าไปอ่านได้ที่ <a href="https://en.wikipedia.org/wiki/Meet-in-the-middle_attack">https://en.wikipedia.org/wiki/Meet-in-the-middle_attack</a> และกลับมาเขียน blog แชร์ความรู้สู้ community กันได้นะครับ</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                    </div>
+                </div></article>
+        </div>
+    </div>
+
+    
+</main>
+
+
+    <footer class="footer text-center bg-dark py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul class="list-inline">
+                    
+                </ul>
+
+                <p class="text-muted">
+                    
+                        Copyright &copy; SUAM 2023
+                    
+                </p>
+
+                <p class="text-muted">
+                Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with <a href="https://github.com/puresyntax71/hugo-theme-chunky-poster" target="_blank">Chunky Poster</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+        
+            <script src="/dist/app.js"></script>
+        
+    
+        
+            <script src="/dist/lazyload.js"></script>
+        
+    
+        
+            <script src="/dist/main.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~app~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~bootstrap.js"></script>
+        
+    
+        
+            <script src="/dist/vendors~ekkoLightbox.js"></script>
+        
+    
+
+
+
+<script>
+    window.Prism = window.Prism || {};
+    window.Prism.manual = true;
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script>
+document.body.onload = () => {
+    renderMathInElement(document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\(", right: "\\)", display: false}
+        ]
+    });
+};
+</script>
+
+
+
+
+
+
+    
+</body>
+</html>
