@@ -1,7 +1,7 @@
 baseURL = "https://suam.wtf/"
 title = "SUAM"
-copyright = ""
-paginate = 2
+# copyright = ""
+# paginate = 2
 languageCode = "en"
 DefaultContentLanguage = "en"
 enableInlineShortcodes = true
@@ -28,8 +28,8 @@ author = "authors"
 
 [params]
   author = "SUAM Team"
-  description = "มีสาระบ้างเดี๋ยวเขาหาว่าเอาแต่เมา"
-  homepageImage = "/images/landing.png"
+  description = "A Hackers' Labyrinth"
+  # homepageImage = "/images/landing.png"
   share = false
   showLanguageSwitcher = false
 
@@ -56,7 +56,7 @@ author = "authors"
 
   [params.prismJS]
     enable = true
-    theme = ""
+    theme = "coy"
 
   [params.commento]
     enable = false

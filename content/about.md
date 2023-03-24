@@ -6,8 +6,6 @@ aliases = ["about-us","contact"]
 author = "Suam Team"
 +++
 
-blog อยากเขียนไรก็เขียนของคน cool ๆ เพราะเราขายหน้าตา ไม่ได้ขายสาระ
-
 #### Author
 
 - [P](/authors/p)
